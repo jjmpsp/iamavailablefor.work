@@ -1,0 +1,168 @@
+@font-face
+{
+	font-family: 'Nunito-Bold';
+	src: url(../fonts/Nunito-Bold.ttf) format('truetype');
+}
+@font-face
+{
+	font-family: 'OpenSans-Regular';
+	src: url(../fonts/OpenSans-Regular.ttf) format('truetype');
+}
+body a
+{
+	moz-transition: 0.5s all;
+	ms-transition: 0.5s all;
+	o-transition: 0.5s all;
+	transition: 0.5s all;
+	webkit-transition: 0.5s all;
+}
+input[type="button"]
+{
+	moz-transition: 0.5s all;
+	ms-transition: 0.5s all;
+	o-transition: 0.5s all;
+	transition: 0.5s all;
+	webkit-transition: 0.5s all;
+}
+h1,h2,h3,h4,h5,h6
+{
+	margin: 0 0;
+	padding: 0 0;
+}
+p
+{
+	margin: 0 0;
+	padding: 0 0;
+}
+ul
+{
+	margin: 0 0;
+	padding: 0 0;
+}
+body
+{
+	background: #243244;
+	font-family: 'OpenSans-Regular';
+	margin: 0 0;
+	padding: 0 0;
+}
+header
+{
+	background-clip: padding-box;
+	background-color: #fff;
+	box-shadow: 0 4px 4px rgba(0,0,0,.2),inset 0 -2px 4px rgba(137,149,164,.35);
+	height: 105px;
+	moz-background-clip: padding-box;
+	moz-box-shadow: 0 4px 4px rgba(0,0,0,.2),inset 0 -2px 4px rgba(137,149,164,.35);
+	top: 0;
+	webkit-background-clip: padding-box;
+	webkit-box-shadow: 0 4px 4px rgba(0,0,0,.2),inset 0 -2px 4px rgba(137,149,164,.35);
+	width: 100%;
+}
+h1
+{
+	padding: 8px 0px;
+}
+.container
+{
+	width: 1000px;
+}
+h2
+{
+	color: grey;
+	font-style: italic;
+}
+.page
+{
+	background-color: white;
+	border-radius: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	padding: 10px;
+}
+.action_buttons
+{
+	position: relative;
+	top: 300px;
+}
+.button1
+{
+	background: #DEA5A4;
+	float: left;
+	padding: 30px;
+	text-align: center;
+	width: 50%;
+}
+.button2
+{
+	background: #AEC6CF;
+	float: right;
+	padding: 30px;
+	text-align: center;
+	width: 50%;
+}
+p
+{
+	margin-bottom: 5px;
+	margin-top: 10px;
+}
+.my_ul
+{
+	margin-left: 20px;
+	margin-top: 5px;
+}
+ul.multicolor
+{
+	font-size: 0;
+	list-style: none;
+	width: 100%;
+}
+ul.multicolor li
+{
+	display: inline-block;
+	height: 7px;
+	width: 20%;
+}
+ul.multicolor li:nth-child(1)
+{
+	background: #2ecc71;
+}
+ul.multicolor li:nth-child(2)
+{
+	background: #3498db;
+}
+ul.multicolor li:nth-child(3)
+{
+	background: #f1c40f;
+}
+ul.multicolor li:nth-child(4)
+{
+	background: #e74c3c;
+}
+ul.multicolor li:nth-child(5)
+{
+	background: #9b59b6;
+}
+ul.inline-yo li
+{
+	display: inline;
+}
+.clearfix
+{
+	clear: both;
+}
+
+.available{
+	color: green;
+}
+
+.taken{
+	color: red;
+}
+
+.ajaxLoading{
+	background:url(../images/loading-balls.svg) no-repeat;
+	background-position: center;
+	content: "sss";
+}
