@@ -25,15 +25,15 @@ The master branch of this repository gets pulled by my server automatically when
 **Roadmap:**
 ------------
 
-I wanted to keep this project simple, but now that I've open sourced it, I have a few feature ideas which I'd like implemented into the project.
+I wanted to keep this project simple, but now that I've open sourced it, I have a few changes which I'd like implemented into the project.
 
 **Core changes:**
 
- - Currently, there is only one theme implemented into the project. It would be cool if multiple themes were created and the user could select which theme they'd like to use on their profile.
+ - Currently, there is only one theme implemented into the project. It would be cool if a theme changer could be implemented so the user could select from a repository of themes.
 
 **Code changes:**
 
- - Add [grunt](http://gruntjs.com/) into the project so CSS and JS files can be minified and compressed, reducing load on the server.
+ - Add [grunt](http://gruntjs.com/) into the project so CSS and JS files are minified and compressed, reducing load on the server.
 
 ------------
 
