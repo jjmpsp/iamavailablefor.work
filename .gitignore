@@ -1,13 +1,6 @@
 .DS_Store
 
 /.htaccess
-/index.php
-/application/config/config.php
-/application/config/database.php
-
-/index_renamed.php
-/application/config/config_renamed.php
-/application/config/database_renamed.php
 
 /application/cache/
 !application/cache/index.html
