@@ -42,3 +42,29 @@ I wanted to keep this project simple, but now that I've open sourced it, I have 
 
 ![iamavailablefor.work default profile](https://lh3.googleusercontent.com/eezqylPDnvcj_bZ78n-Tk9n7PG4DUORKf_dhvoNII0g=w204-h656-no)
 
+
+.DS_Store
+
+/.htaccess
+
+/index.php
+/application/config/config.php
+/application/config/database.php
+
+/application/cache/
+!application/cache/index.html
+!application/cache/.htaccess
+
+/application/logs/
+!application/logs/index.html
+!application/logs/.htaccess
+
+/_tmp-folder/
+/uploads/
+
+*/config/development
+*/logs/log-*.php
+*/logs/!index.html
+*/cache/*
+*/cache/!index.html
+*/cache/!.htaccess
