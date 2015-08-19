@@ -279,6 +279,9 @@ footer .separator{
 (max-device-width: 480px) and 
 (-webkit-min-device-pixel-ratio: 2) and 
 (orientation: portrait) {
+    body{
+        overflow-x: none; 
+    }
     #facebook-widget, #twitter-widget{
         display: none;
     }
