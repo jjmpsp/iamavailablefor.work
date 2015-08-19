@@ -2,12 +2,13 @@
 <html>
     <head>
     	<title>iamavailablefor.work - API</title>
-        <link href="<?php echo base_url(); ?>static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-        <link href="<?php echo base_url(); ?>static/css/homeStyle.css" rel="stylesheet" type="text/css" media="all" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/uikit.css" />
+        <script src="<?php echo base_url(); ?>static/js/jquery.min.js"></script>
+        <script src="<?php echo base_url(); ?>static/js/uikit.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="keywords" content="iamavailablefor.work is a website for showcasing your skills as a professional." />
-        <script src="<?php echo base_url(); ?>static/js/jquery-1.11.1.min.js"></script>
+        <script src="<?php echo base_url(); ?>static/js/jquery.min.js"></script>
         <style type="text/css">
             .apiMethodsList{
                 margin-top:10px;
