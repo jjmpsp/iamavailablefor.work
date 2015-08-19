@@ -8,12 +8,12 @@
                             if( !$this->aauth->is_loggedin() )
                             {
                                 echo 
-                                '<li><a href="'.base_url().'login/">Login</a></li> | 
-                                <li><a href="'.base_url().'register/">Register</a></li> |';
+                                '<li><a href="'.base_url().'login/">Login</a></li> <span class="separator">|</span>  
+                                <li><a href="'.base_url().'register/">Register</a></li> <span class="separator">|</span> ';
                             }else{
                                 echo 
-                                '<li><a href="'.base_url().'logout/" style="color:red;" onclick="return confirm(\'Are you sure you wish to logout?\')">Logout</a></li> |
-                                <li><a href="'.base_url().'account/">Your account</a></li> | ';
+                                '<li><a href="'.base_url().'logout/" style="color:red;" onclick="return confirm(\'Are you sure you wish to logout?\')">Logout</a></li> <span class="separator">|</span> 
+                                <li><a href="'.base_url().'account/">Your account</a></li> <span class="separator">|</span>  ';
                             }
                         ?>           
                         <li><a href="http://iamavailablefor.work/api/">API</a></li> <span class="separator">|</span>   
