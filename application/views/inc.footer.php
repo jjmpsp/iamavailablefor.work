@@ -16,9 +16,9 @@
                                 <li><a href="'.base_url().'account/">Your account</a></li> <span class="separator">|</span>  ';
                             }
                         ?>           
-                        <li><a href="http://iamavailablefor.work/api/">API</a></li> <span class="separator">|</span>   
-                        <li><a href="http://iamavailablefor.work/profiles/">Profiles listing</a></li> <span class="separator">|</span>   
-                        <li><a href="http://iamavailablefor.work/contact/">Contact</a></li>
+                        <li><a href="<?php echo base_url(); ?>api/">API</a></li> <span class="separator">|</span>   
+                        <li><a href="<?php echo base_url(); ?>profiles/">Profiles listing</a></li> <span class="separator">|</span>   
+                        <li><a href="<?php echo base_url(); ?>contact/">Contact</a></li>
                     </ul>
                     <span id="footer-credits">&copy; <a href="http://joel-murphy.com/">Joel Murphy</a> <?php echo Date('Y'); ?></span>
                     <div class="uk-clearfix"></div>

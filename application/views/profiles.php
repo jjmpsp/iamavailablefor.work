@@ -2,20 +2,32 @@
 <html>
     <head>
     	<title>iamavailablefor.work - All profiles</title>
-        <link href="<?php echo base_url(); ?>static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-        <link href="<?php echo base_url(); ?>static/css/homeStyle.css" rel="stylesheet" type="text/css" media="all" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="keywords" content="iamavailablefor.work is a website for showcasing your skills as a professional." />
-        <script src="<?php echo base_url(); ?>static/js/jquery-1.11.1.min.js"></script>
+
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/uikit.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/base.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/home.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/sweetalert.css" />
+        
+        <script src="<?php echo base_url(); ?>static/js/jquery.min.js"></script>
+        <script src="<?php echo base_url(); ?>static/js/uikit.min.js"></script>
+        <script src="<?php echo base_url(); ?>static/js/sweetalert.min.js"></script>
     </head>
     <body>
         <?php $this->load->view('inc.header.php'); ?>  
-        <section class="container">
-            <div class="page">
-                <h3>All profiles</h3>
+        
+         <div class="uk-container uk-container-center">
+            <div class="uk-grid">
+                <div class="uk-width-12">   
+                    <div class="page">
+                        <h3>All profiles</h3>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
 
        <?php $this->load->view('inc.footer.php'); ?>
     </body>

@@ -93,11 +93,20 @@ class App extends CI_Controller {
             exit;
         }
 
-        $email = $this->input->post('email', TRUE);
-        $password = $this->input->post('password', TRUE);
 
-        if($email !== '' && $password !== "")
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('email', 'email', 'trim|required|valid_email|callback_email_check');
+        $this->form_validation->set_rules('password', 'password', 'trim|required');
+        
+        if($this->form_validation->run() == FALSE)
         {
+            $this->load->view('login');
+        }
+        else
+        {
+            $email = $this->input->post('email', TRUE);
+            $password = $this->input->post('password', TRUE);
+
             if ($this->aauth->login($email, $password, TRUE))
             {
                 // Redirect to account panel
@@ -108,8 +117,6 @@ class App extends CI_Controller {
                 $this->data['errors'] = $this->aauth->get_errors();
             }
         }
-
-        $this->load->view('login', $this->data);
     }
 
     public function logout(){

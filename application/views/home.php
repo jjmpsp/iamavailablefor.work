@@ -2,13 +2,19 @@
 <html>
     <head>
     	<title>iamavailablefor.work - Showcase your skills as a professinoal</title>
-        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/uikit.css" />
-        <script src="<?php echo base_url(); ?>static/js/jquery.min.js"></script>
-        <script src="<?php echo base_url(); ?>static/js/uikit.min.js"></script>
+
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="keywords" content="iamavailablefor.work is a website for showcasing your skills as a professional." />
+
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/uikit.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/base.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/home.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/sweetalert.css" />
+        
         <script src="<?php echo base_url(); ?>static/js/jquery.min.js"></script>
+        <script src="<?php echo base_url(); ?>static/js/uikit.min.js"></script>
+        <script src="<?php echo base_url(); ?>static/js/sweetalert.min.js"></script>
 
         <script type="text/javascript">
 
@@ -24,9 +30,6 @@
                 $("#checkUsername").submit(function(e){
                     e.preventDefault();
 
-                    $("#submitButton").val("");
-                    $("#submitButton").addClass("ajaxLoading");
-
                     var formData = new FormData($(this)[0]);
 
                     $.ajax({
@@ -38,18 +41,36 @@
                             setNewToken(json);
 
                             if(json.errors.invalidFormat){
-                                alert(json.errors.invalidFormat);
-                                return false;
+                                swal(
+                                    {   
+                                        type: "error",
+                                        width: 280,
+                                        html: json.errors.invalidFormat
+                                    }
+                                );
                             }
 
-                            $(".usernameVal").html($("#username").val().replace(base_url,""));
-                            $("#availableDiv").hide();
-                            $("#takenDiv").hide();
+                            var usernameVal = $("#username").val().replace(base_url,"");
+                            $(".usernameVal").html(usernameVal);
 
                             if(json.usernameAvailable){
-                                $("#availableDiv").show();
+
+                                swal(
+                                    {   
+                                        type: "success",
+                                        width: 280,
+                                        html: "This web address is available! <br>"+ '<a href="'+base_url+'register/?username='+usernameVal+'">Create a portfolio with this web address</a>'
+                                    }
+                                );
                             }else{
-                                $("#takenDiv").show();
+                                swal(
+                                    {   
+                                        type: "error",
+                                        width: 280,
+                                        html: "This web address is already taken.<br>Please try another."
+                                    }
+                                );
+                                $("#username").val("");
                             }
                         },
                         cache: false,
@@ -72,16 +93,10 @@
                             $attributes = array('id' => 'checkUsername', 'method' => 'POST');
                             echo form_open(base_url().'login/', $attributes);
                         ?>
-                            <input type="text" name="username" id="username" placeholder="<?php echo base_url(); ?>{username}" onclick="this.value = '<?php echo base_url(); ?>';$('#submitButton').removeClass('ajaxLoading');$('#submitButton').val('Check');" />
+                            <input type="text" name="username" id="username" placeholder="<?php echo base_url(); ?>{username}" onclick="this.value = '<?php echo base_url(); ?>';" />
                             <input type="submit" class="uk-button uk-button-primary" id="submitButton" value="Check"/>
                             <div class="uk-clearfix"></div>
                         <?php echo form_close(); ?>
-                        <div id="availableDiv" style="display:none;">
-                            <div> <span class="usernameVal"></span> is <span class="available">available</span>! <a href="register/">Create a portfolio with this web address</a>.</div>
-                        </div>
-                        <div id="takenDiv" style="display:none;">
-                            <div> <span class="usernameVal"></span> is <span class="taken">taken</span>. If this is your account, <a href="http://iamavailablefor.work/login/">please login to manage it</a>.</div>
-                        </div>
                         <br>
                         <div>
                             Already got a profile? <a href="<?php echo base_url(); ?>login/">Please login to make edits to your portfolio</a>.
@@ -116,7 +131,7 @@
 
                         <h3>What are the benefits of using this website over X, Y, or Z?</h3>
                         <ul class="my_ul">
-                            <li>You get a nice friendly URL to showcase your profile (iamavailablefor.work/{whatever_you_like}).</li>
+                            <li>You get a nice friendly URL to showcase your profile. E.g. (iamavailablefor.work/{username}).</li>
                             <li>You can set your own profile keywords, so you can be found via search engines for the skills you have presented on your profile.</li>
                             <li>It's super easy to create a profile, and it requires no maintanance at all (unless you'd like to add or modify information on your profile of course).</li>
                             <li>You don't have to create your own website to showcase your work (although if you're really professional, I recommend that you do).</li>
@@ -157,201 +172,3 @@
         <?php $this->load->view('inc.footer.php'); ?>
     </body>
 </html>
-
-
-<style type="text/css">
-body{
-    background: #243244;
-}
-
-header {
-    background-color: #fff;
-    height: 110px;
-    min-width: 100%;
-    float: left;
-}
-#header-title{
-    line-height: 60px;
-    margin: 0px;
-}
-#header-subtitle{
-    line-height: 30px;
-    margin: 0px;
-}
-
-#facebook-widget{
-    position: absolute;
-    top: 15px;
-    right: 0px;
-}
-#twitter-widget{
-    position: absolute;
-    top: 50px;
-    right: 0px;
-}
-
-ul.multicolor
-{   
-    font-size: 0;
-    list-style: none;
-    float:left;
-    min-width: 100%;
-    padding: 0px;
-    margin: 0px;
-    line-height: 0px;
-}
-ul.multicolor li
-{
-    display: inline-block;
-    height: 7px;
-    width: 20%;
-}
-ul.multicolor li:nth-child(1)
-{
-    background: #2ecc71;
-}
-ul.multicolor li:nth-child(2)
-{
-    background: #3498db;
-}
-ul.multicolor li:nth-child(3)
-{
-    background: #f1c40f;
-}
-ul.multicolor li:nth-child(4)
-{
-    background: #e74c3c;
-}
-ul.multicolor li:nth-child(5)
-{
-    background: #9b59b6;
-}
-
-.page {
-    background-color: white;
-    border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    padding: 10px;
-    word-break: break-all;
-}
-
-footer .separator{
-    color: #c9c9c9;
-}
-#footer-menu {
-    float: left;
-    line-height: 20px;
-    margin-bottom: 0px;
-    padding-left: 0px;
-}
-#footer-menu li {
-    display: inline;
-}
-#footer-credits{
-    float: right;
-}
-
-#username{
-    float: left;
-    width: 88%;
-    height: 50px;
-    border: 2px solid #F5F5F5;
-    background: #fff;
-    box-shadow: 0px;
-    color: #808080;
-    font-size: 14px;
-    padding-left: 10px;
-}
-
-#submitButton{
-    float: right;
-    height: 55px;
-    width: 10%;
-    border: 1px solid #808080;
-}
-
-
-/* ===== Mobile queries =====  */
-/* Portrait */
-@media only screen and (min-device-width: 320px) and 
-(max-device-width: 480px) and 
-(-webkit-min-device-pixel-ratio: 2) and 
-(orientation: portrait) {
-    body{
-        overflow-x: none; 
-    }
-    #facebook-widget, #twitter-widget{
-        display: none;
-    }
-    header{
-        height: 80px;
-        text-align: center;
-    }
-    #header-title{
-        font-size: 24px;
-        line-height:24px;
-        padding-top: 15px;
-    }
-    #header-subtitle{
-        font-size: 14px;
-        line-height: 14px;
-        padding-top: 12px;
-    }
-
-    #footer-menu {
-        float: none;
-        display: block;
-        width: 100%;
-        line-height: 20px;
-        margin-bottom: 0px;
-        padding-left: 0px;
-    }
-    #footer-menu li {
-        display: block;
-        width: 100%;
-        margin-bottom: 10px;
-        border: 1px solid #c9c9c9;
-        border-radius: 5px;
-        text-align: center;
-        padding: 10px 0px;
-    }
-    #footer-menu li:last-child {
-        margin-bottom: 0px;
-    }
-    .footer-credits{
-        float: right;
-    }
-    #footer-menu .separator{
-        display: none;
-    }
-
-    #footer-credits{
-        float: none;
-        display: block;
-        width: 100%;
-        float: none;
-        text-align: center;
-        margin-top: 30px;
-    }
-
-    #username{
-        float: none;
-        width: 96%;
-        height: 50px;
-        color: #808080;
-        font-size: 14px;
-        padding: 5px 3px;
-    }
-
-    #submitButton{
-        float: none;
-        height: 50px;
-        width: 100%;
-        border: 1px solid grey;
-        border-radius: 0px;
-    }
-}
-
-</style>

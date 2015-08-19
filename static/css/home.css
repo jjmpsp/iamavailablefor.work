@@ -1,0 +1,42 @@
+#username{
+    float: left;
+    width: 88%;
+    height: 50px;
+    border: 2px solid #F5F5F5;
+    background: #fff;
+    box-shadow: 0px;
+    color: #808080;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+#submitButton{
+    float: right;
+    height: 55px;
+    width: 10%;
+    border: 1px solid #808080;
+}
+
+/* ===== Mobile queries =====  */
+/* Portrait */
+@media only screen and (min-device-width: 320px) and 
+(max-device-width: 480px) and 
+(-webkit-min-device-pixel-ratio: 2) and 
+(orientation: portrait) {
+    #username{
+        float: none;
+        width: 96%;
+        height: 50px;
+        color: #808080;
+        font-size: 14px;
+        padding: 5px 3px;
+    }
+
+    #submitButton{
+        float: none;
+        height: 50px;
+        width: 100%;
+        border: 1px solid grey;
+        border-radius: 0px;
+    }
+}

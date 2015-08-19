@@ -1,0 +1,27 @@
+input[type="text"], input[type="password"]{
+    width: 50%;
+    height: 30px;
+}
+input[type="submit"]{
+    width: 50%;
+    height: 50px;
+}
+
+.validation_error{
+    color: red;
+    font-size: 14px;
+}
+
+/* ===== Mobile queries =====  */
+/* Portrait */
+@media only screen and (min-device-width: 320px) and 
+(max-device-width: 480px) and 
+(-webkit-min-device-pixel-ratio: 2) and 
+(orientation: portrait) {
+    input[type="text"], input[type="password"]{
+        width: 90%;
+    }
+    input[type="submit"]{
+        width: 95%;
+    }
+}
