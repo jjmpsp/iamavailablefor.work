@@ -1,0 +1,126 @@
+input[type="text"], input[type="password"], select{
+    width: 50%;
+    height: 30px;
+    line-height: 30px;
+    background-color: inherit;
+    border: 1px solid #ddd;
+    padding: 2px 7px;
+}
+input[type="submit"]{
+    width: 50%;
+    height: 30px;
+}
+textarea{
+    width: 50%;
+    height: 150px;
+    resize: none;
+    padding: 5px;
+    border: 1px solid #ddd;
+    padding: 7px 7px;
+}  
+
+.errorField{
+    border: 1px solid red;
+}
+
+#educationTable th, #skillsTable th, #portfolioTable th {
+    color: #337ab7;
+    padding: 20px 5px;
+}
+
+th:not(:first-child){
+    text-align: center; 
+    vertical-align: middle;
+}
+
+label.error { 
+    position: relative;
+    border: 5px solid #e74c3c;
+    color: #fff;
+    background: #e74c3c;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin-left: 20px;
+    padding: 0px 5px;
+    font-weight: normal;
+}
+
+
+label.error:before {
+    content: "";
+    position: absolute;
+    left: 40px;
+    border-width: 20px 20px 0;
+    border-style: solid;
+    border-color: #e74c3c transparent;
+    display: block;
+    width: 0;
+    bottom: auto;
+    left: -24px;
+    top: 0px;
+    border-width: 10px 20px 10px 0;
+    border-color: transparent #e74c3c;
+}
+
+.portfolioImage{
+    max-height: 100px;
+}
+
+
+
+.uk-modal-header {
+    margin-bottom: 15px;
+    margin: -20px -20px 15px -20px;
+    padding: 20px;
+    border-bottom: 1px solid #e5e5e5;
+    border-radius: 4px 4px 0 0;
+    background: #fafafa;
+}
+
+.uk-modal-footer {
+    margin-top: 15px;
+    margin: 15px -20px -20px -20px;
+    padding: 20px;
+    border-top: 1px solid #e5e5e5;
+    border-radius: 0 0 4px 4px;
+    background: #fafafa;
+}
+
+.uk-close{
+    width: 40px;
+    line-height: 40px;
+    font-size: 24px;
+}
+
+
+/* ===== Mobile queries =====  */
+/* Portrait */
+@media only screen and (min-device-width: 320px) and 
+(max-device-width: 480px) and 
+(-webkit-min-device-pixel-ratio: 2) and 
+(orientation: portrait) {
+    input[type="text"], input[type="password"], select{
+        width: 96%;
+        height: 30px;
+        line-height: 30px;
+        background-color: inherit;
+        border: 1px solid #ddd;
+        padding: 2px 7px;
+    }
+    input[type="text"]:disabled {
+        width: 95%;
+    }
+    input[type="submit"]{
+        width: 95%;
+        height: 30px;
+    }
+    textarea{
+        width: 96%;
+        height: 150px;
+        resize: none;
+        padding: 5px;
+        border: 1px solid #ddd;
+        padding: 7px 7px;
+    }  
+}
