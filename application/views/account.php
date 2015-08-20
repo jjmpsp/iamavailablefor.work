@@ -21,7 +21,6 @@
         <script src="<?php echo base_url(); ?>static/js/jquery.dynatable.js"></script>
         <script src="<?php echo base_url(); ?>static/js/jquery.validate.min.js"></script>
         <script src="<?php echo base_url(); ?>static/js/colorpicker.js"></script>
-        <script src="<?php echo base_url(); ?>static/js/ion.sound.min.js"></script>
 
         <script type="text/javascript">
         var app = {};
@@ -160,19 +159,6 @@ label.error:before {
             var base_url = "<?php echo base_url(); ?>";
 
             $(document).ready(function(){
-
-                ion.sound({
-                    sounds: [
-                        {
-                            name: "water_droplet",
-                            volume: 1.0,
-                            preload: true
-                        }
-                    ],
-                    volume: 0.5,
-                    path: "<?php echo base_url(); ?>static/sounds/",
-                    preload: true
-                });
 
                 $('#myModal').on('hidden.bs.modal', function () {
                     $('#myModal .notice').html("");
@@ -368,7 +354,6 @@ label.error:before {
 
                 function generateModalError(message)
                 {
-                    ion.sound.play("water_droplet");
                     return '<div class="alert alert-danger" role="alert">\
                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>\
                         <span class="sr-only">Error:</span>\
@@ -378,7 +363,6 @@ label.error:before {
 
                 function generateModalSuccess(message)
                 {
-                    ion.sound.play("water_droplet");
                     return '<div class="alert alert-success" role="alert">\
                     <span class="glyphicon glyphicon-check" aria-hidden="true"></span>\
                         <span class="sr-only">Error:</span>\
