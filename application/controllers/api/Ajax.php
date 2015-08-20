@@ -188,7 +188,7 @@ class Ajax extends REST_Controller {
 
                 if ( ! $this->upload->do_upload("profilePicture"))
                 {
-                    $errors[] = array("message" => "Upload failed.");
+                    $errors[] = array("message" => $this->upload->display_errors());
                 }
                 else
                 {   
