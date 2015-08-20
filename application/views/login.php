@@ -7,6 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="keywords" content="iamavailablefor.work is a website for showcasing your skills as a professional." />
 
+        <link rel="icon" href="<?php echo base_url(); ?>static/images/favicon.ico">
         <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/uikit.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/base.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/login.css" />
