@@ -40,7 +40,7 @@
                             <div class="validation_error"><?php echo form_error('email'); ?></div>
                             <label>Your email address:</label>
                             <br>
-                            <input type="text" name="email" id="name" placeholder="Your email address." />
+                            <input type="text" name="email" id="email" placeholder="Your email address." />
                             <br>
                             <br>
                             <div class="validation_error"><?php echo form_error('password'); ?></div>

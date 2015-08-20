@@ -21,7 +21,7 @@
                 margin-top:10px;
             }
             .apiMethodsList li{
-                margin-left: 30px;
+                margin-left: 0px;
                 margin-bottom: 10px;
             }
             .apiMethod{
@@ -50,7 +50,7 @@
 
                         <hr>
                         <h4>Introduction</h4>
-                        <p>Your API key is 32 characters in length and allows you to make requests to our service from your own applications. API keys are genertated automatically for your profile when you sign up, and never expire. Due to this reason, you should treat your API key as a sensitive piece of information (just like a password), as a malicious user could potentially make requests to your account without your knowledge.</p>
+                        <p>An <i>iamavailableform.work</i> API key is 32 characters in length and allows you to make requests to our service from your own applications. API keys are genertated automatically for your profile when you sign up, and never expire. Due to this reason, you should treat your API key as a sensitive piece of information (just like a password), as a malicious user could potentially make requests to your account without your knowledge.</p>
                         <br>
                         <hr>
                         <h4>Getting your API key</h4>
@@ -58,7 +58,7 @@
                         <?php 
                         if( $this->aauth->is_loggedin() )
                         {   
-                            echo '<div style="margin-top:10px;">Your API key:</div><input type="text" value="'.$this->data['api_key'].'" readonly style="width:50%;" />';
+                            echo '<div style="margin-top:10px;">Your API key:</div><input type="text" value="'.$this->data['api_key'].'" readonly style="width:98%;height:30px;font-size:14px;color:grey;" />';
                         }
                         ?>
                         <br>

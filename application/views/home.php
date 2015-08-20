@@ -86,36 +86,42 @@
 
         <div class="uk-container uk-container-center">
             <div class="uk-grid">
-                <div class="uk-width-12">   
-                    <div class="page">
-                        <h4 style="margin-bottom:10px;">Check to see if your desired <i>iamavailablefor.work</i> web address is available:</h4>
-                        <?php
-                            $attributes = array('id' => 'checkUsername', 'method' => 'POST');
-                            echo form_open(base_url().'login/', $attributes);
-                        ?>
-                            <input type="text" name="username" id="username" placeholder="<?php echo base_url(); ?>{username}" onclick="this.value = '<?php echo base_url(); ?>';" />
-                            <input type="submit" class="uk-button uk-button-primary" id="submitButton" value="Check"/>
-                            <div class="uk-clearfix"></div>
-                        <?php echo form_close(); ?>
-                        <br>
-                        <div>
-                            Already got a profile? <a href="<?php echo base_url(); ?>login/">Please login to make edits to your portfolio</a>.
-                        </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="uk-width-12">
-                    <div class="page">
-                        Hi {username}!
-                        You're already logged in. To edit your profile, please go to your account page.
-                    </div>
-                </div>  
+                <?php
+                    if( $this->aauth->is_loggedin() )
+                    {
+                        echo '
+                        <div class="uk-width-12">
+                            <div class="page">
+                                Hi '.$this->security->xss_clean($this->data['userdata']->name).'!
+                                You\'re already logged in. To edit your profile, please <a href="'.base_url().'account/">go to your account page</a>.
+                            </div>
+                        </div>';
+                    }else{
+                        echo '
+                        <div class="uk-width-12">   
+                            <div class="page">
+                                <h4 style="margin-bottom:10px;">Check to see if your desired <i>iamavailablefor.work</i> web address is available:</h4>';
+                                    $attributes = array('id' => 'checkUsername', 'method' => 'POST');
+                                    echo form_open(base_url().'login/', $attributes);
+                                echo '
+                                    <input type="text" name="username" id="username" placeholder="<?php echo base_url(); ?>{username}" onclick="this.value = '.base_url().';" />
+                                    <input type="submit" class="uk-button uk-button-primary" id="submitButton" value="Check"/>
+                                    <div class="uk-clearfix"></div>
+                                <?php echo form_close(); ?>
+                                <br>
+                                <div>
+                                    Already got a profile? <a href="<?php echo base_url(); ?>login/">Please login to make edits to your portfolio</a>.
+                                </div>
+                                </form>
+                            </div>
+                        </div>';
+                    }
+                ?>  
 
                 <div class="uk-width-12">
                     <div class="page">
                         <h3>What is iamavailablefor.work?</h3>
-                        <p><i>iamavailablefor.work</i> is a website for freelancers &amp; self-employed people to showcase their skills, qualities, and special abilities to find work. <a href="http://iamavailablefor.work/jjmpsp/" target="_blank">Click here to see an example of a profile.</a> Your <i>iamavailablefor.work</i> profile is just like a CV on Steroids. <i>iamavailablefor.work</i> was built with the following people in mind:</p>
+                        <p><i>iamavailablefor.work</i> is a website for freelancers &amp; self-employed people to showcase their skills, qualities, and special abilities to find work. <a href="<?php echo base_url(); ?>jjmpsp/" target="_blank">Click here to see an example of a profile.</a> Your <i>iamavailablefor.work</i> profile is just like a CV on Steroids and <i>iamavailablefor.work</i> was built with the following people in mind:</p>
 
                         <ul class="my_ul">
                             <li>Artists</li>
@@ -158,7 +164,7 @@
                         <hr>
 
                         <h3>I have an suggestion for this website. Who should I contact?</h3>
-                        <p>Ooo I like suggestions. Let me know via the <a href="">Facebook page</a>. If you're familiar with GitHub, then you can also file an issue on the <a href="">official project page</a>. I check both websites regularly, so you'll probably get a near immediate response from me.</p>
+                        <p>Ooo I like suggestions. Let me know via the <a href="https://www.facebook.com/iamavailablefor.work">Facebook page</a>. If you're familiar with GitHub, then you can also file an issue on the <a href="">official project page</a>. I check both websites regularly, so you'll probably get a near immediate response from me.</p>
 
                         <hr>
 

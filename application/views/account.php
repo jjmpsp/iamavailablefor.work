@@ -2,37 +2,37 @@
 <html>
     <head>
     	<title>iamavailablefor.work - Your account</title>
-        <link rel="icon" href="<?php echo base_url(); ?>static/images/favicon.ico">
-        <link href="<?php echo base_url(); ?>static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-        <link href="<?php echo base_url(); ?>static/css/homeStyle.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="<?php echo base_url(); ?>static/css/jquery.dynatable.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="<?php echo base_url(); ?>static/css/sweetalert.css" rel="stylesheet" type="text/css" media="all" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="keywords" content="iamavailablefor.work is a website for showcasing your skills as a professional." />
-        <script src="<?php echo base_url(); ?>static/js/jquery-1.11.1.min.js"></script>
-        <script src="<?php echo base_url(); ?>static/js/jquery.dynatable.js"></script>
-        <script src="<?php echo base_url(); ?>static/js/sweetalert.min.js"></script>
-        <script src="<?php echo base_url(); ?>static/js/jquery.validate.min.js"></script>
-        
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-        <link rel="stylesheet" media="screen" type="text/css" href="<?php echo base_url(); ?>static/css/colorpicker.css" />
-        <script type="text/javascript" src="<?php echo base_url(); ?>static/js/colorpicker.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>static/js/ion.sound.min.js"></script>
+        <link rel="icon" href="<?php echo base_url(); ?>static/images/favicon.ico">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/uikit.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/base.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/home.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/sweetalert.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/jquery.dynatable.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/colorpicker.css" />
+        
+        <script src="<?php echo base_url(); ?>static/js/jquery.min.js"></script>
+        <script src="<?php echo base_url(); ?>static/js/uikit.min.js"></script>
+        <script src="<?php echo base_url(); ?>static/js/sweetalert.min.js"></script>
+        <script src="<?php echo base_url(); ?>static/js/jquery.dynatable.js"></script>
+        <script src="<?php echo base_url(); ?>static/js/jquery.validate.min.js"></script>
+        <script src="<?php echo base_url(); ?>static/js/colorpicker.js"></script>
+        <script src="<?php echo base_url(); ?>static/js/ion.sound.min.js"></script>
 
         <script type="text/javascript">
         var app = {};
-        app.educationList = <?php echo ((strlen($this->data['customUserdata']['educationList']) > 0) ? $this->data['customUserdata']['educationList'] : "null"); ?>;
-        app.skillsList = <?php echo ((strlen($this->data['customUserdata']['skillsList']) > 0) ? $this->data['customUserdata']['skillsList'] : "null"); ?>;
-        app.portfolioList = <?php echo ((strlen($this->data['customUserdata']['portfolioList']) > 0) ? $this->data['customUserdata']['portfolioList'] : "null"); ?>;
-        app.socialMediaList = <?php echo ((strlen($this->data['customUserdata']['socialMediaList']) > 0) ? $this->data['customUserdata']['socialMediaList'] : "null"); ?>;
-        app.educationListTable = null;
-        app.skillsListTable = null;
-        app.portfolioListTable = null;
-        app.socialMediaListTable = null;
-
+            app.educationList = <?php echo ((strlen($this->data['customUserdata']['educationList']) > 0) ? $this->data['customUserdata']['educationList'] : "null"); ?>;
+            app.skillsList = <?php echo ((strlen($this->data['customUserdata']['skillsList']) > 0) ? $this->data['customUserdata']['skillsList'] : "null"); ?>;
+            app.portfolioList = <?php echo ((strlen($this->data['customUserdata']['portfolioList']) > 0) ? $this->data['customUserdata']['portfolioList'] : "null"); ?>;
+            app.socialMediaList = <?php echo ((strlen($this->data['customUserdata']['socialMediaList']) > 0) ? $this->data['customUserdata']['socialMediaList'] : "null"); ?>;
+            app.educationListTable = null;
+            app.skillsListTable = null;
+            app.portfolioListTable = null;
+            app.socialMediaListTable = null;
         </script>
         <style type="text/css">
             input[type="text"], input[type="password"], select{
@@ -41,7 +41,7 @@
                 line-height: 30px;
                 background-color: inherit;
                 border: 1px solid #ddd;
-                padding: 22px 7px;
+                padding: 2px 7px;
             }
             input[type="submit"]{
                 width: 50%;
@@ -127,11 +127,37 @@ label.error:before {
 .portfolioImage{
     max-height: 100px;
 }
+
+
+
+.uk-modal-header {
+    margin-bottom: 15px;
+    margin: -20px -20px 15px -20px;
+    padding: 20px;
+    border-bottom: 1px solid #e5e5e5;
+    border-radius: 4px 4px 0 0;
+    background: #fafafa;
+}
+
+.uk-modal-footer {
+    margin-top: 15px;
+    margin: 15px -20px -20px -20px;
+    padding: 20px;
+    border-top: 1px solid #e5e5e5;
+    border-radius: 0 0 4px 4px;
+    background: #fafafa;
+}
+
+.uk-close{
+    width: 40px;
+    line-height: 40px;
+    font-size: 24px;
+}
         </style>
 
         <script type="text/javascript">
 
-        var base_url = "<?php echo base_url(); ?>";
+            var base_url = "<?php echo base_url(); ?>";
 
             $(document).ready(function(){
 
@@ -258,7 +284,7 @@ label.error:before {
                     if(app.educationList.length >0)
                     {
                         for(var i=0; i<app.educationList.length; i++){ 
-                            app.educationList[i].deleteButton = '<button data-id="'+ app.educationList[i].id + '" class="btn btn-danger btn-sm deleteButton"><span class="glyphicon glyphicon-trash"></span> Delete</button>'; 
+                            app.educationList[i].deleteButton = '<button data-id="'+ app.educationList[i].id + '" class="uk-button uk-button-danger deleteButton">Delete</button>'; 
                         }
                         
                         app.educationListTable.settings.dataset.originalRecords = app.educationList;
@@ -277,7 +303,7 @@ label.error:before {
                     if(app.skillsList.length >0)
                     {
                         for(var i=0; i<app.skillsList.length; i++){ 
-                            app.skillsList[i].deleteButton = '<button data-id="'+ app.skillsList[i].id + '" class="btn btn-danger btn-sm deleteButton"><span class="glyphicon glyphicon-trash"></span> Delete</button>'; 
+                            app.skillsList[i].deleteButton = '<button data-id="'+ app.skillsList[i].id + '" class="uk-button uk-button-danger deleteButton">Delete</button>';
                             app.skillsList[i].skillPercentage = app.skillsList[i].skillPercentage + '%'; 
                         }
                         
@@ -297,7 +323,7 @@ label.error:before {
                     if(app.portfolioList.length >0)
                     {
                         for(var i=0; i<app.portfolioList.length; i++){ 
-                            app.portfolioList[i].deleteButton = '<button data-id="'+ app.portfolioList[i].id + '" class="btn btn-danger btn-sm deleteButton"><span class="glyphicon glyphicon-trash"></span> Delete</button>'; 
+                            app.portfolioList[i].deleteButton = '<button data-id="'+ app.portfolioList[i].id + '" class="uk-button uk-button-danger deleteButton">Delete</button>'; 
                             app.portfolioList[i].itemImage = '<img class="portfolioImage" src="<?php echo base_url(); ?>uploads/portfolio/540x340/'+app.portfolioList[i].itemImage+'"/>'; 
                         }
                         
@@ -318,7 +344,7 @@ label.error:before {
                     if(app.socialMediaList.length >0)
                     {
                         for(var i=0; i<app.socialMediaList.length; i++){ 
-                            app.socialMediaList[i].deleteButton = '<button data-id="'+ app.socialMediaList[i].id + '" class="btn btn-danger btn-sm deleteButton"><span class="glyphicon glyphicon-trash"></span> Delete</button>'; 
+                            app.socialMediaList[i].deleteButton = '<button data-id="'+ app.socialMediaList[i].id + '" class="uk-button uk-button-danger deleteButton">Delete</button>';
                             
                             socialMedias = {
                                 'twitter'   : "Twitter",
@@ -370,7 +396,7 @@ label.error:before {
                     var _that = $(this);
                     swal({   
                         title: "Are you sure?",   
-                        text: "Are you sure you want to delete this education place?",   
+                        html: "Are you sure you want to delete this Education Place? <br>This action cannot be undone.",   
                         type: "warning",   
                         showCancelButton: true,  
                         cancelButtonText: "Close", 
@@ -415,7 +441,7 @@ label.error:before {
                     var _that = $(this);
                     swal({   
                         title: "Are you sure?",   
-                        text: "Are you sure you want to delete this skill?",   
+                        html: "Are you sure you want to delete this Skill? <br>This action cannot be undone.",    
                         type: "warning",   
                         showCancelButton: true,  
                         cancelButtonText: "Close", 
@@ -462,7 +488,7 @@ label.error:before {
                     var _that = $(this);
                     swal({   
                         title: "Are you sure?",   
-                        text: "Are you sure you want to delete this portfolio item?",   
+                        html: "Are you sure you want to delete this Portfolio Item? <br>This action cannot be undone.",     
                         type: "warning",   
                         showCancelButton: true,  
                         cancelButtonText: "Close", 
@@ -895,237 +921,245 @@ label.error:before {
         </script>
     </head>
     <body>
-        <?php $this->load->view('inc.header.php'); ?>    
-        <section class="container">
-            <div class="page">
-                <input type="hidden" id="csrf_token_ajax" name="csrf_token" value="<?php echo $this->security->get_csrf_hash(); ?>" style="display:none;" />
-                <h3>Your account</h3>
-                <p>From this page you will be able to make changes to your profile.</p> 
-                <p>Changes will instantly become visible on your profile web address as they are saved.</p>
-                <hr>
-                <h4>Account details</h4>
-                <?php
-                    $attributes = array('id' => 'editAccountForm', 'method' => 'POST');
-                    echo form_open(base_url().'login/', $attributes);
-                ?>
-                    <br>
-                    <label>Your username:</label>
-                    <br>
-                    <input type="text" name="username" value="<?php echo $this->data['userdata']->name; ?>" disabled />
-                    <br>
-                    <br>
-                    <label>Your portfolio URL (<a href="<?php echo base_url().$this->data['userdata']->name; ?>/" target="_blank">open in a new tab</a>) :</label>
-                    <br>
-                    <input type="text" value="<?php echo base_url().$this->data['userdata']->name; ?>/" disabled />
-                    <br>
-                    <br>
-                    <label>Your API key:</label>
-                    <br>
-                    <input type="text" id="api_key_input" value="<?php echo $this->data['customUserdata']['api_key']; ?>" disabled />
-                    <br>
-                <?php echo form_close(); ?>
+        <?php $this->load->view('inc.header.php'); ?>   
 
-                <hr>
+       <div class="uk-container uk-container-center">
+            <div class="uk-grid">
+                <div class="uk-width-12">   
+                    <div class="page">
+                        <input type="hidden" id="csrf_token_ajax" name="csrf_token" value="<?php echo $this->security->get_csrf_hash(); ?>" style="display:none;" />
+                        <h3>Your account</h3>
+                        <p>From this page you will be able to make changes to your profile.</p> 
+                        <p>Changes will instantly become visible on your profile web address once they are saved.</p>
+                        <hr>
+                        <h4>Account details</h4>
+                        <?php
+                            $attributes = array('id' => 'editAccountForm', 'method' => 'POST');
+                            echo form_open(base_url().'login/', $attributes);
+                        ?>
+                            <br>
+                            <label>Your username:</label>
+                            <br>
+                            <input type="text" name="username" value="<?php echo $this->data['userdata']->name; ?>" disabled />
+                            <br>
+                            <br>
+                            <label>Your portfolio URL (<a href="<?php echo base_url().$this->data['userdata']->name; ?>/" target="_blank">open in a new tab</a>) :</label>
+                            <br>
+                            <input type="text" value="<?php echo base_url().$this->data['userdata']->name; ?>/" disabled />
+                            <br>
+                            <br>
+                            <label>Your API key:</label>
+                            <br>
+                            <input type="text" id="api_key_input" value="<?php echo $this->data['customUserdata']['api_key']; ?>" disabled />
+                            <br>
+                        <?php echo form_close(); ?>
 
-                <h4>Profile information</h4>
-                <?php
-                    $attributes = array('id' => 'editProfileInformationForm', 'method' => 'POST');
-                    echo form_open(base_url().'login/', $attributes);
-                ?>
-                    <br>
-                    <label>Your first name:</label>
-                    <br>
-                    <input type="text" name="firstName" minlength="2" required placeholder="Please enter your first name." value="<?php echo isset($this->data['customUserdata']['firstName']) ? $this->data['customUserdata']['firstName'] : ""; ?>" />
-                    <br>
-                    <br>
-                    <label>Your last name:</label>
-                    <br>
-                    <input type="text" name="lastName" minlength="2" required placeholder="Please enter your last name." value="<?php echo isset($this->data['customUserdata']['lastName']) ? $this->data['customUserdata']['lastName'] : ""; ?>" />
-                    <br>
-                    <br>
-                    <label>Your gender:</label>
-                    <br>
-                    <select name="gender">
-                    <?php
-                        foreach ($this->data['genders'] as $key => $value) {
-                            echo '<option value="'.$key.'" '.((isset($this->data['customUserdata']['gender']) && ($this->data['customUserdata']['gender'] == $key) ) ? "selected" : "").'>'.$this->data['genders'][$key].'</option>';  
-                        }
-                    ?>
-                    </select>
-                    <br>
-                    <br>
-                    <label>Your country:</label>
-                    <br>
-                    <select name="country">
-                    <?php
-                        foreach ($this->data['countries'] as $key => $value) {
-                            echo '<option value="'.$key.'" '.((isset($this->data['customUserdata']['country']) && ($this->data['customUserdata']['country'] == $key) ) ? "selected" : "").'>'.$this->data['countries'][$key].'</option>';  
-                        }
-                    ?>
-                    </select>
-                    <br>
-                    <br>
-                    <label>Your occupation:</label>
-                    <br>
-                    <input type="text" name="occupation" minlength="3" required value="<?php echo (isset($this->data['customUserdata']['occupation']) ? $this->data['customUserdata']['occupation'] : ""); ?>" placeholder="Enter your occupation here" />
-                    <br>
-                    <br>
-                    <label>Your work status:</label>
-                    <br>
-                    <select name="workStatus">
-                    <?php
-                        foreach ($this->data['workStatus'] as $key => $value) {
-                            echo '<option value="'.$key.'" '.((isset($this->data['customUserdata']['workStatus']) && ($this->data['customUserdata']['workStatus'] == $key) ) ? "selected" : "").'>'.$this->data['workStatus'][$key].'</option>';  
-                        }
-                    ?>
-                    </select>
-                    <br>
-                    <br>
-                    <label>About you:</label>
-                    <br>
-                    <textarea name="about" minlength="12" required placeholder="Write something about yourself. This is where you should sell yourself and tell people why they should hire you for work over anyone else."><?php echo isset($this->data['customUserdata']['about']) ? $this->data['customUserdata']['about'] : ""; ?></textarea>
-                    <br>
-                    <br>
-                    <label>Profile display picture:</label>
-                    <br>
-                    <input type="file" name="profilePicture" id="profilePictureImagePicker">
-                    <img id="profilePicturePreview" src="#" style="display:none;max-height:120px;max-width:120px;margin-top:10px;border:1px solid grey;" alt="Image preview" />    
-                    <br>
-                    <br>
-                    <label>Profile header image:</label>
-                    <br>
-                    <input type="file" name="profileHeaderImage" id="profileHeaderImageImagePicker">
-                    <img id="profileHeaderImagePreview" src="#" style="display:none;max-height:120px;max-width:120px;margin-top:10px;border:1px solid grey;" alt="Image preview" />    
-                    <br>
-                    <br>
-                    <label>Profile text colour:</label>
-                    <br>
-                    <input type="text" name="profileTextColour" id="profileTextColour" value="<?php echo isset($this->data['customUserdata']['profileTextColour']) ? $this->data['customUserdata']['profileTextColour'] : ""; ?>" />
-                    <br>
-                    <br>
-                    <label>Profile forecolour:</label>
-                    <br>
-                    <input type="text" name="profileForecolor" id="profileForecolor" value="<?php echo isset($this->data['customUserdata']['profileForecolor']) ? $this->data['customUserdata']['profileForecolor'] : ""; ?>" />
-                    
-                    <br>
-                    <br>
-                    <button type="submit" form="editProfileInformationForm" value="Save profile information" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-floppy-disk"></span> Save profile information</button>
-                <?php echo form_close(); ?>
-                <hr>
-                <h4>Your education history:</h4>
-                <br>
-                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-                    <span class="glyphicon glyphicon-plus"></span>
-                    Add an education place
-                </button>
-                <br>
-                <br>
-                <table class="table table-bordered table-hover" id="educationTable">
-                    <thead>
-                         <th data-dynatable-no-sort="true" data-dynatable-column="placeName">Place Name</th>
-                         <th data-dynatable-no-sort="true" data-dynatable-column="startYear">Start Year</th>
-                         <th data-dynatable-no-sort="true" data-dynatable-column="endYear">End Year</th>
-                         <th data-dynatable-no-sort="true" data-dynatable-column="deleteButton">Actions</th>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-                <hr>
-                <h4>Your skills:</h4>
-                <br>
-                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal1">
-                    <span class="glyphicon glyphicon-plus"></span>
-                    Add a skill
-                </button>
-                <br>
-                <br>
-                <table class="table table-bordered table-hover" id="skillsTable">
-                    <thead>
-                        <th data-dynatable-no-sort="true" data-dynatable-column="skillName">Skill Name</th>
-                        <th data-dynatable-no-sort="true" data-dynatable-column="skillPercentage">Skill percentage</th>
-                        <th data-dynatable-no-sort="true" data-dynatable-column="deleteButton">Actions</th>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-                <hr>
-                <h4>Your work portfolio:</h4>
-                <br>
-                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal2">
-                    <span class="glyphicon glyphicon-plus"></span> 
-                    Add a Portfolio Item
-                </button>
-                <br>
-                <br>
-                <table class="table table-bordered table-hover" id="portfolioTable">
-                    <thead>
-                        <th data-dynatable-no-sort="true" data-dynatable-column="itemName">Item Name</th>
-                        <th data-dynatable-no-sort="true" data-dynatable-column="itemImage">Item Image</th>
-                        <th data-dynatable-no-sort="true" data-dynatable-column="itemDescription">Item Description</th>
-                        <th data-dynatable-no-sort="true" data-dynatable-column="deleteButton">Actions</th>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-                <hr>
-                <h4>Your social profiles:</h4>
-                <br>
-                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal3">
-                    <span class="glyphicon glyphicon-plus"></span> 
-                    Add a social media
-                </button>
-                <br>
-                <br>
-                <table class="table table-bordered table-hover" id="socialMediaTable">
-                    <thead>
-                        <th data-dynatable-no-sort="true" data-dynatable-column="socialMediaName">Name</th>
-                        <th data-dynatable-no-sort="true" data-dynatable-column="socialMediaID">User ID</th>
-                        <th data-dynatable-no-sort="true" data-dynatable-column="deleteButton">Actions</th>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-                <hr>
-                <h4>Profile settings</h4>
-                <br>
-                <?php
-                    $attributes = array('id' => 'editProfileSettingsForm', 'method' => 'POST');
-                    echo form_open(base_url().'login/', $attributes);
-                ?>
-                    <label>Redirect to custom URL? This will disable your portfolio!</label>
-                    <br>
-                    <select id="redirectWebAddressToggle" name="redirectWebAddressToggle">
-                        <option>Off</option>
-                        <option>On</option>
-                    </select>
-                    <br>
-                    <br>
-                    <label>Custom URL:</label>
-                    <br>
-                    <input type="text" id="customUrlValue" name="customUrlValue" placeholder="http://example.com/" value="<?php echo isset($this->data['customUserdata']['customUrlValue']) ? $this->data['customUserdata']['customUrlValue'] : ""; ?>" disabled />
-                    <br>
-                    <br>
-                    <button type="submit" form="editProfileSettingsForm" value="Save profile settings" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-floppy-disk"></span> Save profile settings</button>
-                <?php echo form_close(); ?>
-                <hr>
+                        <hr>
 
-                <?php //print_r($this->data['userdata']); ?>
+                        <h4>Profile information</h4>
+                        <?php
+                            $attributes = array('id' => 'editProfileInformationForm', 'method' => 'POST');
+                            echo form_open(base_url().'login/', $attributes);
+                        ?>
+                            <br>
+                            <label>Your first name:</label>
+                            <br>
+                            <input type="text" name="firstName" minlength="2" required placeholder="Please enter your first name." value="<?php echo isset($this->data['customUserdata']['firstName']) ? $this->data['customUserdata']['firstName'] : ""; ?>" />
+                            <br>
+                            <br>
+                            <label>Your last name:</label>
+                            <br>
+                            <input type="text" name="lastName" minlength="2" required placeholder="Please enter your last name." value="<?php echo isset($this->data['customUserdata']['lastName']) ? $this->data['customUserdata']['lastName'] : ""; ?>" />
+                            <br>
+                            <br>
+                            <label>Your gender:</label>
+                            <br>
+                            <select name="gender">
+                            <?php
+                                foreach ($this->data['genders'] as $key => $value) {
+                                    echo '<option value="'.$key.'" '.((isset($this->data['customUserdata']['gender']) && ($this->data['customUserdata']['gender'] == $key) ) ? "selected" : "").'>'.$this->data['genders'][$key].'</option>';  
+                                }
+                            ?>
+                            </select>
+                            <br>
+                            <br>
+                            <label>Your country:</label>
+                            <br>
+                            <select name="country">
+                            <?php
+                                foreach ($this->data['countries'] as $key => $value) {
+                                    echo '<option value="'.$key.'" '.((isset($this->data['customUserdata']['country']) && ($this->data['customUserdata']['country'] == $key) ) ? "selected" : "").'>'.$this->data['countries'][$key].'</option>';  
+                                }
+                            ?>
+                            </select>
+                            <br>
+                            <br>
+                            <label>Your occupation:</label>
+                            <br>
+                            <input type="text" name="occupation" minlength="3" required value="<?php echo (isset($this->data['customUserdata']['occupation']) ? $this->data['customUserdata']['occupation'] : ""); ?>" placeholder="Enter your occupation here" />
+                            <br>
+                            <br>
+                            <label>Your work status:</label>
+                            <br>
+                            <select name="workStatus">
+                            <?php
+                                foreach ($this->data['workStatus'] as $key => $value) {
+                                    echo '<option value="'.$key.'" '.((isset($this->data['customUserdata']['workStatus']) && ($this->data['customUserdata']['workStatus'] == $key) ) ? "selected" : "").'>'.$this->data['workStatus'][$key].'</option>';  
+                                }
+                            ?>
+                            </select>
+                            <br>
+                            <br>
+                            <label>About you:</label>
+                            <br>
+                            <textarea name="about" minlength="12" required placeholder="Write something about yourself. This is where you should sell yourself and tell people why they should hire you for work over anyone else."><?php echo isset($this->data['customUserdata']['about']) ? $this->data['customUserdata']['about'] : ""; ?></textarea>
+                            <br>
+                            <br>
+                            <label>Profile display picture:</label>
+                            <br>
+                            <input type="file" name="profilePicture" id="profilePictureImagePicker">
+                            <img id="profilePicturePreview" src="#" style="display:none;max-height:120px;max-width:120px;margin-top:10px;border:1px solid grey;" alt="Image preview" />    
+                            <br>
+                            <br>
+                            <label>Profile header image:</label>
+                            <br>
+                            <input type="file" name="profileHeaderImage" id="profileHeaderImageImagePicker">
+                            <img id="profileHeaderImagePreview" src="#" style="display:none;max-height:120px;max-width:120px;margin-top:10px;border:1px solid grey;" alt="Image preview" />    
+                            <br>
+                            <br>
+                            <label>Profile text colour:</label>
+                            <br>
+                            <input type="text" name="profileTextColour" id="profileTextColour" value="<?php echo isset($this->data['customUserdata']['profileTextColour']) ? $this->data['customUserdata']['profileTextColour'] : ""; ?>" />
+                            <br>
+                            <br>
+                            <label>Profile forecolour:</label>
+                            <br>
+                            <input type="text" name="profileForecolor" id="profileForecolor" value="<?php echo isset($this->data['customUserdata']['profileForecolor']) ? $this->data['customUserdata']['profileForecolor'] : ""; ?>" />
+                            
+                            <br>
+                            <br>
+                            <button type="submit" form="editProfileInformationForm" value="Save profile information" class="uk-button uk-button-primary btn-md"><span class="glyphicon glyphicon-floppy-disk"></span> Save profile information</button>
+                        <?php echo form_close(); ?>
+                        <hr>
+                        <h4>Your education history:</h4>
+                        <br>
+                        <button type="button" class="uk-button uk-button-primary" data-uk-modal="{target:'#myModal'}">
+                            Add an education place
+                        </button>
+                        <br>
+                        <br>
+                        <div class="uk-overflow-container">
+                            <table class="uk-table uk-table-bordered uk-table-striped uk-table-hover" id="educationTable">
+                                <thead>
+                                     <th data-dynatable-no-sort="true" data-dynatable-column="placeName">Place Name</th>
+                                     <th data-dynatable-no-sort="true" data-dynatable-column="startYear">Start Year</th>
+                                     <th data-dynatable-no-sort="true" data-dynatable-column="endYear">End Year</th>
+                                     <th data-dynatable-no-sort="true" data-dynatable-column="deleteButton">Actions</th>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr>
+                        <h4>Your skills:</h4>
+                        <br>
+                        <button type="button" class="uk-button uk-button-primary" data-uk-modal="{target:'#myModal1'}">
+                            Add a skill
+                        </button>
+                        <br>
+                        <br>
+                        <div class="uk-overflow-container">
+                            <table class="uk-table uk-table-bordered uk-table-striped uk-table-hover" id="skillsTable">
+                                <thead>
+                                    <th data-dynatable-no-sort="true" data-dynatable-column="skillName">Skill Name</th>
+                                    <th data-dynatable-no-sort="true" data-dynatable-column="skillPercentage">Skill percentage</th>
+                                    <th data-dynatable-no-sort="true" data-dynatable-column="deleteButton">Actions</th>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr>
+                        <h4>Your work portfolio:</h4>
+                        <br>
+                        <button type="button" class="uk-button uk-button-primary" data-uk-modal="{target:'#myModal2'}">
+                            Add a Portfolio Item
+                        </button>
+                        <br>
+                        <br>
+                        <div class="uk-overflow-container">
+                            <table class="uk-table uk-table-bordered uk-table-striped uk-table-hover" id="portfolioTable">
+                                <thead>
+                                    <th data-dynatable-no-sort="true" data-dynatable-column="itemName">Item Name</th>
+                                    <th data-dynatable-no-sort="true" data-dynatable-column="itemImage">Item Image</th>
+                                    <th data-dynatable-no-sort="true" data-dynatable-column="itemDescription">Item Description</th>
+                                    <th data-dynatable-no-sort="true" data-dynatable-column="deleteButton">Actions</th>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr>
+                        <h4>Your social profiles:</h4>
+                        <br>
+                        <button type="button" class="uk-button uk-button-primary" data-uk-modal="{target:'#myModal3'}">
+                            Add a social media
+                        </button>
+                        <br>
+                        <br>
+                        <div class="uk-overflow-container">
+                            <table class="uk-table uk-table-bordered uk-table-striped uk-table-hover" id="socialMediaTable">
+                                <thead>
+                                    <th data-dynatable-no-sort="true" data-dynatable-column="socialMediaName">Name</th>
+                                    <th data-dynatable-no-sort="true" data-dynatable-column="socialMediaID">User ID</th>
+                                    <th data-dynatable-no-sort="true" data-dynatable-column="deleteButton">Actions</th>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr>
+                        <h4>Profile settings</h4>
+                        <br>
+                        <?php
+                            $attributes = array('id' => 'editProfileSettingsForm', 'method' => 'POST');
+                            echo form_open(base_url().'login/', $attributes);
+                        ?>
+                            <label>Redirect to custom URL? This will disable your portfolio!</label>
+                            <br>
+                            <select id="redirectWebAddressToggle" name="redirectWebAddressToggle">
+                                <option>Off</option>
+                                <option>On</option>
+                            </select>
+                            <br>
+                            <br>
+                            <label>Custom URL:</label>
+                            <br>
+                            <input type="text" id="customUrlValue" name="customUrlValue" placeholder="http://example.com/" value="<?php echo isset($this->data['customUserdata']['customUrlValue']) ? $this->data['customUserdata']['customUrlValue'] : ""; ?>" disabled />
+                            <br>
+                            <br>
+                            <button type="submit" form="editProfileSettingsForm" value="Save profile settings" class="uk-button uk-button-primary btn-md"><span class="glyphicon glyphicon-floppy-disk"></span> Save profile settings</button>
+                        <?php echo form_close(); ?>
+                        <hr>
 
-                <?php //print_r($this->data['customUserdata']); ?>
+                        <?php //print_r($this->data['userdata']); ?>
+
+                        <?php //print_r($this->data['customUserdata']); ?>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
 
         <?php $this->load->view('inc.footer.php'); ?>
 
-
-        <div class="modal" id="myModal" tabindex="-1">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Add education place</h4>
-              </div>
-              <div class="modal-body">
+        <!-- Essential modals -->
+        <div class="uk-modal" id="myModal" tabindex="-1">
+            <div class="uk-modal-dialog">
+                <button type="button" class="uk-modal-close uk-close"></button>
+                <div class="uk-modal-header">
+                    <h4 class="modal-title">Add education place</h4>
+                </div>
+                <div class="uk-modal-body">
                     <?php
                         $attributes = array('id' => 'addEducationForm', 'method' => 'POST');
                         echo form_open(base_url().'login/', $attributes);
@@ -1161,23 +1195,21 @@ label.error:before {
                         <br>
                         <br>
                     <?php echo form_close(); ?>
-              </div>
-              <div class="modal-footer">
-                <button type="submit" form="addEducationForm" value="Add education place" class="btn btn-primary">Add education place</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-              </div>
+                </div>
+                <div class="uk-modal-footer uk-text-right">
+                    <button type="button" class="uk-button uk-modal-close">Cancel</button>
+                    <button type="submit" form="addEducationForm" value="Add education place" class="uk-button uk-button-primary">Add education place</button>
+                </div>
             </div>
-          </div>
         </div>
 
-        <div class="modal" id="myModal1" tabindex="-1">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Add a skill</h4>
-              </div>
-              <div class="modal-body">
+        <div class="uk-modal" id="myModal1" tabindex="-1">
+            <div class="uk-modal-dialog">
+                <button type="button" class="uk-modal-close uk-close"></button>
+                <div class="uk-modal-header">
+                    <h4 class="modal-title">Add a skill</h4>
+                </div>
+                <div class="uk-modal-body">
                     <?php
                         $attributes = array('id' => 'addSkillForm', 'method' => 'POST');
                         echo form_open(base_url().'login/', $attributes);
@@ -1201,23 +1233,21 @@ label.error:before {
                         <br>
                         <br>
                     <?php echo form_close(); ?>
-              </div>
-              <div class="modal-footer">
-                <button type="submit" form="addSkillForm" value="Add skill" class="btn btn-primary">Add skill</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-              </div>
+                </div>
+                <div class="uk-modal-footer uk-text-right">
+                    <button type="button" class="uk-button uk-modal-close">Cancel</button>
+                    <button type="submit" form="addSkillForm" value="Add skill" class="uk-button uk-button-primary">Add skill</button>
+                </div>
             </div>
-          </div>
         </div>
 
-        <div class="modal" id="myModal2" tabindex="-1">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Add a Portforlio Item</h4>
-              </div>
-              <div class="modal-body">
+        <div class="uk-modal" id="myModal2" tabindex="-1">
+            <div class="uk-modal-dialog">
+                <button type="button" class="uk-modal-close uk-close"></button>
+                <div class="uk-modal-header">
+                    <h4 class="modal-title">Add a portfolio item</h4>
+                </div>
+                <div class="uk-modal-body">
                     <?php
                         $attributes = array('id' => 'addPortfolioItemForm', 'method' => 'POST');
                         echo form_open_multipart(base_url().'login/', $attributes);
@@ -1245,23 +1275,21 @@ label.error:before {
                         <br>
                         <br>
                     <?php echo form_close(); ?>
-              </div>
-              <div class="modal-footer">
-                <button type="submit" form="addPortfolioItemForm" value="Add portfolio item" class="btn btn-primary">Add portfolio item</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-              </div>
+                </div>
+                <div class="uk-modal-footer uk-text-right">
+                    <button type="button" class="uk-button uk-modal-close">Cancel</button>
+                    <button type="submit" form="addPortfolioItemForm" value="Add portfolio item" class="uk-button uk-button-primary">Add portfolio item</button>
+                </div>
             </div>
-          </div>
         </div>
 
-        <div class="modal" id="myModal3" tabindex="-1">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Add a Social Media</h4>
-              </div>
-              <div class="modal-body">
+        <div class="uk-modal" id="myModal3" tabindex="-1">
+            <div class="uk-modal-dialog">
+                <button type="button" class="uk-modal-close uk-close"></button>
+                <div class="uk-modal-header">
+                    <h4 class="modal-title">Add a social media account</h4>
+                </div>
+                <div class="uk-modal-body">
                     <?php
                         $attributes = array('id' => 'addSocialMediaForm', 'method' => 'POST');
                         echo form_open_multipart(base_url().'login/', $attributes);
@@ -1284,13 +1312,12 @@ label.error:before {
                         <br>
                         <br>
                     <?php echo form_close(); ?>
-              </div>
-              <div class="modal-footer">
-                <button type="submit" form="addSocialMediaForm" value="Add portfolio item" class="btn btn-primary">Add Social Media</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-              </div>
+                </div>
+                <div class="uk-modal-footer uk-text-right">
+                    <button type="button" class="uk-button uk-modal-close">Cancel</button>
+                    <button type="submit" form="addSocialMediaForm" value="Add portfolio item" class="uk-button uk-button-primary">Add Social Media</button>
+                </div>
             </div>
-          </div>
         </div>
 
     </body>

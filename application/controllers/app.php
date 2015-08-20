@@ -45,7 +45,8 @@ class App extends CI_Controller {
 
     public function index() {
         $this->load->helper('form');
-        $this->load->view('home');
+        $this->data['userdata'] = $this->aauth->get_user();
+        $this->load->view('home', $this->data);
     }
 
     public function register($username="") {
@@ -95,7 +96,7 @@ class App extends CI_Controller {
 
 
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('email', 'email', 'trim|required|valid_email|callback_email_check');
+        $this->form_validation->set_rules('email', 'email', 'trim|required|valid_email');
         $this->form_validation->set_rules('password', 'password', 'trim|required');
         
         if($this->form_validation->run() == FALSE)
