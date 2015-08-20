@@ -482,7 +482,28 @@ $(document).ready(function(){
 
             var formData = new FormData($("#editProfileInformationForm")[0]);
 
+            NProgress.start();
+
             $.ajax({
+                xhr: function() {
+                    var xhr = new window.XMLHttpRequest();
+                    xhr.upload.addEventListener("progress", function(evt) {
+                        if (evt.lengthComputable) {
+                            var percentComplete = (evt.loaded / evt.total)*100;
+                            console.log(percentComplete);
+                            NProgress.set(percentComplete);
+                        }
+                   }, false);
+
+                   xhr.addEventListener("progress", function(evt) {
+                       if (evt.lengthComputable) {
+                           var percentComplete = (evt.loaded / evt.total)*100;
+                           console.log(percentComplete);
+                       }
+                   }, false);
+
+                   return xhr;
+                },
                 url: base_url+"ajax/editProfileInformation/",
                 type: 'POST',
                 data: formData,

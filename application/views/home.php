@@ -12,10 +12,12 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/base.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/home.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/sweetalert.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/nprogress.css" />
         
         <script src="<?php echo base_url(); ?>static/js/jquery.min.js"></script>
         <script src="<?php echo base_url(); ?>static/js/uikit.min.js"></script>
         <script src="<?php echo base_url(); ?>static/js/sweetalert.min.js"></script>
+        <script src="<?php echo base_url(); ?>static/js/nprogress.js"></script>
 
         <script type="text/javascript">
 
@@ -28,12 +30,48 @@
             }
 
             $(document).ready(function(){
+
+                // Show the progress bar 
+                NProgress.start();
+
+                // Increase randomly
+                var interval = setInterval(function() { NProgress.inc(); }, 1000);        
+
+                // Trigger finish when page fully loaded
+                jQuery(window).load(function () {
+                    clearInterval(interval);
+                    NProgress.done();
+                });
+
+                // Trigger bar when exiting the page
+                jQuery(window).unload(function () {
+                    NProgress.start();
+                });
+
                 $("#checkUsername").submit(function(e){
                     e.preventDefault();
 
                     var formData = new FormData($(this)[0]);
 
                     $.ajax({
+                        xhr: function() {
+                            var xhr = new window.XMLHttpRequest();
+                            xhr.upload.addEventListener("progress", function(evt) {
+                                if (evt.lengthComputable) {
+                                    var percentComplete = (evt.loaded / evt.total)*100;
+                                    console.log(percentComplete);
+                                }
+                           }, false);
+
+                           xhr.addEventListener("progress", function(evt) {
+                               if (evt.lengthComputable) {
+                                   var percentComplete = (evt.loaded / evt.total)*100;
+                                   console.log(percentComplete);
+                               }
+                           }, false);
+
+                           return xhr;
+                        },
                         url: base_url+"ajax/checkUsername/",
                         type: 'POST',
                         data: formData,

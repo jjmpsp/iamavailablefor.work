@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/sweetalert.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/jquery.dynatable.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/colorpicker.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>static/css/nprogress.css" />
         
         <script src="<?php echo base_url(); ?>static/js/jquery.min.js"></script>
         <script src="<?php echo base_url(); ?>static/js/uikit.min.js"></script>
@@ -21,6 +22,7 @@
         <script src="<?php echo base_url(); ?>static/js/jquery.dynatable.js"></script>
         <script src="<?php echo base_url(); ?>static/js/jquery.validate.min.js"></script>
         <script src="<?php echo base_url(); ?>static/js/colorpicker.js"></script>
+        <script src="<?php echo base_url(); ?>static/js/nprogress.js"></script>
         <script src="<?php echo base_url(); ?>static/js/account.js"></script>
 
         <script type="text/javascript">
