@@ -23,6 +23,22 @@
                     <iframe id="twitter-widget-i1439985077639857436" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" src="http://platform.twitter.com/widgets/tweet_button.6462747b9dfb48d4787d8f74f7caa774.en.html#_=1439985077646&amp;count=horizontal&amp;dnt=false&amp;hashtags=iamavailableforwork&amp;id=twitter-widget-i1439985077639857436&amp;lang=en&amp;original_referer=http%3A%2F%2Fiamavailablefor.work%2F&amp;size=m&amp;text=Get%20your%20freelance%20profile%20at&amp;type=share&amp;url=http%3A%2F%2Fiamavailablefor.work%2F" style="position: static; visibility: visible; width: 78px; height: 20px;" data-url="http://iamavailablefor.work/"></iframe>
                     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                 </div>
+
+                <div id="google-widget">
+                    <!-- Place this tag where you want the +1 button to render. -->
+                    <div class="g-plusone" data-href="http://iamavailablefor.work/"></div>
+
+                    <!-- Place this tag after the last +1 button tag. -->
+                    <script type="text/javascript">
+                      window.___gcfg = {lang: 'en-GB'};
+
+                      (function() {
+                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                        po.src = 'https://apis.google.com/js/platform.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                      })();
+                    </script>
+                </div>
             </div>
         </div>
     </div>

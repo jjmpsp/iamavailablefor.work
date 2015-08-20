@@ -28,8 +28,13 @@ header {
 }
 #twitter-widget{
     position: absolute;
-    top: 50px;
+    top: 42px;
     right: 0px;
+}
+#google-widget{
+    position: absolute;
+    top: 70px;
+    right: -42px;
 }
 
 ul.multicolor
@@ -104,7 +109,7 @@ footer .separator{
     body{
         overflow-x: none; 
     }
-    #facebook-widget, #twitter-widget{
+    #facebook-widget, #twitter-widget, #google-widget{
         display: none;
     }
     header{
