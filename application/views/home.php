@@ -104,7 +104,7 @@
                                     $attributes = array('id' => 'checkUsername', 'method' => 'POST');
                                     echo form_open(base_url().'login/', $attributes);
                                 echo '
-                                    <input type="text" name="username" id="username" placeholder="<?php echo base_url(); ?>{username}" onclick="this.value = '.base_url().';" />
+                                    <input type="text" name="username" id="username" placeholder="'.base_url().'{username}" onclick="this.value = '.base_url().';" />
                                     <input type="submit" class="uk-button uk-button-primary" id="submitButton" value="Check"/>
                                     <div class="uk-clearfix"></div>
                                 <?php echo form_close(); ?>

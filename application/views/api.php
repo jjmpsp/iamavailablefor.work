@@ -46,7 +46,7 @@
                 <div class="uk-width-12">   
                     <div class="page">
                         <h3>API</h3>
-                        <p>This page contains details of how to update your <i>iamavailableform.work</i> profile via our API.</p>
+                        <p>This page contains details of how to get and update information of your <i>iamavailableform.work</i> profile via our API.</p>
 
                         <hr>
                         <h4>Introduction</h4>
