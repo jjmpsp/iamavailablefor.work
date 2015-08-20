@@ -17,6 +17,7 @@ textarea{
     padding: 5px;
     border: 1px solid #ddd;
     padding: 7px 7px;
+    line-height: 20px;
 }  
 
 .errorField{
@@ -43,24 +44,7 @@ label.error {
     border-radius: 10px;
     margin-left: 20px;
     padding: 0px 5px;
-    font-weight: normal;
-}
-
-
-label.error:before {
-    content: "";
-    position: absolute;
-    left: 40px;
-    border-width: 20px 20px 0;
-    border-style: solid;
-    border-color: #e74c3c transparent;
-    display: block;
-    width: 0;
-    bottom: auto;
-    left: -24px;
-    top: 0px;
-    border-width: 10px 20px 10px 0;
-    border-color: transparent #e74c3c;
+    font-size: 12px;
 }
 
 .portfolioImage{
@@ -123,4 +107,11 @@ label.error:before {
         border: 1px solid #ddd;
         padding: 7px 7px;
     }  
+
+    label.error { 
+        display: block;
+        margin-left: 0px;
+        margin-top: 5px;
+        width: 95%;
+    }
 }

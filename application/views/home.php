@@ -159,12 +159,12 @@
                         <hr>
 
                         <h3>Why did you create this website and who are you?</h3>
-                        <p>I needed a new job and on a random afternoon I got bored and built this website. As I mentioned above, I thought it would be cool to share this domain name with others. At the current time of writing this, I see many of my friends who have recently graduated creating websites to showcase their skills. Imagine if there was a website that could automate that? Oh wait... :D My name is <a href="http://joel-murphy.com/">Joel Murphy</a>, by the way.</p>
+                        <p>I needed a new job and on a random afternoon I got bored and built this website. As I mentioned above, I thought it would be cool to share this domain name with others. At the current time of writing this, I see many of my friends who have recently graduated creating websites to showcase their skills. Imagine if there was a website that could automate that? Oh wait... :D My name is <a target="_blank" href="http://joel-murphy.com/">Joel Murphy</a>, by the way.</p>
 
                         <hr>
 
                         <h3>I have an suggestion for this website. Who should I contact?</h3>
-                        <p>Ooo I like suggestions. Let me know via the <a href="https://www.facebook.com/iamavailablefor.work">Facebook page</a>. If you're familiar with GitHub, then you can also file an issue on the <a href="">official project page</a>. I check both websites regularly, so you'll probably get a near immediate response from me.</p>
+                        <p>Ooo I like suggestions. Let me know via the <a target="_blank" href="https://www.facebook.com/iamavailablefor.work">Facebook page</a>. If you're familiar with GitHub, then you can also file an issue on the <a target="_blank" href="https://github.com/jjmpsp/iamavailablefor.work">official project page</a>. I check both websites regularly, so you'll probably get a near immediate response from me.</p>
 
                         <hr>
 

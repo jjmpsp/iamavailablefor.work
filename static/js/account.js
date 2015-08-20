@@ -1,13 +1,13 @@
 
 $(document).ready(function(){
 
-    $('#myModal').on('hidden.bs.modal', function () {
+    $('#myModal').on('show.uk.modal', function () {
         $('#myModal .notice').html("");
     });
-    $('#myModal1').on('hidden.bs.modal', function () {
+    $('#myModal1').on('show.uk.modal', function () {
         $('#myModal1 .notice').html("");
     });
-    $('#myModal2').on('hidden.bs.modal', function () {
+    $('#myModal2').on('show.uk.modal', function () {
         $('#myModal2 .notice').html("");
     });
 
@@ -195,20 +195,12 @@ $(document).ready(function(){
 
     function generateModalError(message)
     {
-        return '<div class="alert alert-danger" role="alert">\
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>\
-            <span class="sr-only">Error:</span>\
-            '+message+'\
-        </div>';
+        return '<div class="uk-alert uk-alert-error">'+message+'</div>';
     }
 
     function generateModalSuccess(message)
     {
-        return '<div class="alert alert-success" role="alert">\
-        <span class="glyphicon glyphicon-check" aria-hidden="true"></span>\
-            <span class="sr-only">Error:</span>\
-            '+message+'\
-        </div>';
+        return '<div class="uk-alert uk-alert-success">'+message+'</div>';
     }
 
     $.fn.resetForm = function() {
@@ -236,8 +228,7 @@ $(document).ready(function(){
                     csrf_token : $("#csrf_token_ajax").val(),
                     educationId : $(_that).attr("data-id")
                 },
-                success: function (data) {
-                    var json = JSON.parse(data);
+                success: function (json) {
                     setNewToken(json);
 
                     if( json.errors.length > 0)
@@ -281,8 +272,7 @@ $(document).ready(function(){
                     csrf_token : $("#csrf_token_ajax").val(),
                     skillId : $(_that).attr("data-id")
                 },
-                success: function (data) {
-                    var json = JSON.parse(data);
+                success: function (json) {
                     setNewToken(json);
 
                     if( json.errors.length > 0)
@@ -328,8 +318,7 @@ $(document).ready(function(){
                     csrf_token : $("#csrf_token_ajax").val(),
                     portfolioItemId : $(_that).attr("data-id")
                 },
-                success: function (data) {
-                    var json = JSON.parse(data);
+                success: function (json) {
                     setNewToken(json);
 
                     if( json.errors.length > 0)
@@ -394,8 +383,7 @@ $(document).ready(function(){
                 url: base_url+"ajax/editAccountSettings/",
                 type: 'POST',
                 data: formData,
-                success: function (data) {
-                    var json = JSON.parse(data);
+                success: function (json) {
                     setNewToken(json);
 
                     if( json.errors.length > 0)
@@ -435,8 +423,7 @@ $(document).ready(function(){
                 url: base_url+"ajax/editProfileSettings/",
                 type: 'POST',
                 data: formData,
-                success: function (data) {
-                    var json = JSON.parse(data);
+                success: function (json) {
                     setNewToken(json);
 
                     if( json.errors.length > 0)
@@ -492,8 +479,7 @@ $(document).ready(function(){
                 url: base_url+"ajax/editProfileInformation/",
                 type: 'POST',
                 data: formData,
-                success: function (data) {
-                    var json = JSON.parse(data);
+                success: function (json) {
                     setNewToken(json);
                     
                     console.log(json);
@@ -554,8 +540,7 @@ $(document).ready(function(){
                 url: base_url+"ajax/addEducation/",
                 type: 'POST',
                 data: formData,
-                success: function (data) {
-                    var json = JSON.parse(data);
+                success: function (json) {
                     setNewToken(json);
                     
                     if( json.errors.length > 0)
@@ -602,8 +587,7 @@ $(document).ready(function(){
                 url: base_url+"ajax/addSkill/",
                 type: 'POST',
                 data: formData,
-                success: function (data) {
-                    var json = JSON.parse(data);
+                success: function (json) {
                     setNewToken(json);
                     
                     if( json.errors.length > 0)
@@ -656,8 +640,7 @@ $(document).ready(function(){
                 url: base_url+"ajax/addPortfolioItem/",
                 type: 'POST',
                 data: formData,
-                success: function (data) {
-                    var json = JSON.parse(data);
+                success: function (json) {
                     setNewToken(json);
                     
                     if( json.errors.length > 0)
@@ -702,8 +685,7 @@ $(document).ready(function(){
                 url: base_url+"ajax/addSocialMedia/",
                 type: 'POST',
                 data: formData,
-                success: function (data) {
-                    var json = JSON.parse(data);
+                success: function (json) {
                     setNewToken(json);
                     
                     console.log(json);

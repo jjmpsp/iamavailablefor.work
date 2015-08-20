@@ -62,7 +62,7 @@ class Ajax extends REST_Controller {
 
         $response["errors"] = $errors;
         $this->response(
-            json_encode($response),
+            $response,
             REST_Controller::HTTP_OK
         );
     }
@@ -117,7 +117,7 @@ class Ajax extends REST_Controller {
 
         $response["errors"] = $errors;
         $this->response(
-            json_encode($response),
+            $response,
             REST_Controller::HTTP_OK
         );
     }
@@ -321,7 +321,7 @@ class Ajax extends REST_Controller {
 
         $response["errors"] = $errors;
         $this->response(
-            json_encode($response),
+            $response,
             REST_Controller::HTTP_OK
         );
     }
@@ -395,7 +395,7 @@ class Ajax extends REST_Controller {
         $response["educationList"] = $educationList;
         $response["errors"] = $errors;
         $this->response(
-            json_encode($response),
+            $response,
             REST_Controller::HTTP_OK
         );
     }
@@ -447,7 +447,7 @@ class Ajax extends REST_Controller {
         $response["educationList"] = $educationList;
         $response["errors"] = $errors;
         $this->response(
-            json_encode($response),
+            $response,
             REST_Controller::HTTP_OK
         );
     }
@@ -515,7 +515,7 @@ class Ajax extends REST_Controller {
         $response["skillsList"] = $skillsList;
         $response["errors"] = $errors;
         $this->response(
-            json_encode($response),
+            $response,
             REST_Controller::HTTP_OK
         );
     }
@@ -567,7 +567,7 @@ class Ajax extends REST_Controller {
         $response["skillsList"] = $skillsList;
         $response["errors"] = $errors;
         $this->response(
-            json_encode($response),
+            $response,
             REST_Controller::HTTP_OK
         );
     }
@@ -695,7 +695,7 @@ class Ajax extends REST_Controller {
         $response["portfolioList"] = $portfolioList;
         $response["errors"] = $errors;
         $this->response(
-            json_encode($response),
+            $response,
             REST_Controller::HTTP_OK
         );
     }
@@ -750,9 +750,9 @@ class Ajax extends REST_Controller {
                 */
 
                 $this->aauth->set_user_var('socialMediaList', json_encode($socialMediaList));
-                $response["message"] = "Social Media added.";
+                $response["message"] = "Social Media account added.";
             }else{
-                $errors[] = array("message" => "You can only add up to 50 Social Media profile. Please go back and delete some.");
+                $errors[] = array("message" => "You can only add up to 50 Social Media accounts. Please go back and delete some.");
             }   
         }else{
             $this->response(
@@ -765,7 +765,7 @@ class Ajax extends REST_Controller {
         $response["socialMediaList"] = $socialMediaList;
         $response["errors"] = $errors;
         $this->response(
-            json_encode($response),
+            $response,
             REST_Controller::HTTP_OK
         );
     }
@@ -817,7 +817,7 @@ class Ajax extends REST_Controller {
         $response["portfolioList"] = $portfolioList;
         $response["errors"] = $errors;
         $this->response(
-            json_encode($response),
+            $response,
             REST_Controller::HTTP_OK
         );
     }
