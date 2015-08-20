@@ -26,13 +26,6 @@
                         <h3>Login to your account</h3>
                         <p>Please input your username and password to login to <i>iamavailablefor.work</i></p>
                         <hr>
-                        <div class="errors">
-                            <?php
-                                if(isset($this->data['errors'])){
-                                    echo $this->data['errors'];
-                                }
-                            ?>
-                        </div>
                         <?php
                             $attributes = array('id' => 'login', 'method' => 'POST');
                             echo form_open(base_url().'login/', $attributes);
