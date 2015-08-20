@@ -380,7 +380,7 @@ class Ajax extends REST_Controller {
                 );
 
                 $this->aauth->set_user_var('educationList', json_encode($educationList));
-                $response["message"] = "Education place added.";
+                $response["message"] = "Education place added. You have ".(20 - count($educationList))." slot(s) left.";
             }else{
                 $errors[] = array("message" => "You can only add up to 20 places of education. Please go back and delete some.");
             }   
@@ -682,7 +682,7 @@ class Ajax extends REST_Controller {
                 $this->aauth->set_user_var('portfolioList', json_encode($portfolioList));
                 $response["message"] = "Portfolio item added.";
             }else{
-                $errors[] = array("message" => "You can only add up to 50 portfolio items.  Please go back and delete some.");
+                $errors[] = array("message" => "You can only add up to 50 portfolio items. Please go back and delete some.");
             }   
         }else{
             $this->response(

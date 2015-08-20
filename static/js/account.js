@@ -83,6 +83,7 @@ $(document).ready(function(){
 
     function setNewToken(response)
     {   
+        console.log(response);
         console.log(response.meta.newToken.hash);
         $('input[name="'+response.meta.newToken.name+'"]').val(response.meta.newToken.hash);
     }
@@ -358,6 +359,8 @@ $(document).ready(function(){
         if(!readImage(this, "#PortfolioItemImagePreview"))
         {
             swal("error", "Please choose a valid image file!", "error");
+        }else{
+            $("#PortfolioItemImagePreview").css("display","block");
         }
     });
 
@@ -365,6 +368,8 @@ $(document).ready(function(){
         if(!readImage(this, "#profilePicturePreview"))
         {
             swal("error", "Please choose a valid image file!", "error");
+        }else{
+            $("#profilePicturePreview").css("display","block");
         }
     });
 
@@ -372,6 +377,8 @@ $(document).ready(function(){
         if(!readImage(this, "#profileHeaderImagePreview"))
         {
             swal("error", "Please choose a valid image file!", "error");
+        }else{
+            $("#profileHeaderImageImagePicker").css("display","block");
         }
     });
 
@@ -708,7 +715,7 @@ $(document).ready(function(){
 
                     if( json.message )
                     {
-                        var message = generateModalSuccess(message); 
+                        var message = generateModalSuccess(json.message); 
                         $("#addSocialMediaForm .notice").html(message);
 
                         $("#addSocialMediaForm :input").each(function(){

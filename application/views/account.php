@@ -346,7 +346,12 @@
                             <?php
                                 $skills = range(1, 100);
                                 foreach($skills as $skill) {
-                                    echo '<option value="'.$skill.'">'.$skill.'</option>';
+                                    if($skill==50)
+                                    {
+                                        echo '<option selected value="'.$skill.'">'.$skill.'</option>';
+                                    }else{
+                                        echo '<option value="'.$skill.'">'.$skill.'</option>';
+                                    }
                                 }
                             ?>
                         </select>

@@ -120,23 +120,20 @@
                 ?>  
 
                 <?php
-                if(ENVIRONMENT == "production")
-                {
-                    echo'
-                    <div class="uk-width-12">
-                        <div class="page">
-                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                            <ins class="adsbygoogle"
-                                 style="display:block"
-                                 data-ad-client="ca-pub-9259836823539954"
-                                 data-ad-slot="5257542342"
-                                 data-ad-format="auto"></ins>
-                            <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script>
-                        </div>
-                    </div>';
-                }
+                    if(ENVIRONMENT == "production")
+                    {
+                        echo'
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- iamavailablefor.work homepage -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-9259836823539954"
+                             data-ad-slot="5257542342"
+                             data-ad-format="auto"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>';
+                    }
                 ?>
                 
                 <div class="uk-width-12">
@@ -194,24 +191,22 @@
                     </div>
                 </div>
 
+
                 <?php
-                if(ENVIRONMENT == "production")
-                {
-                    echo'
-                    <div class="uk-width-12">
-                        <div class="page">
-                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                            <ins class="adsbygoogle"
-                                 style="display:block"
-                                 data-ad-client="ca-pub-9259836823539954"
-                                 data-ad-slot="5257542342"
-                                 data-ad-format="auto"></ins>
-                            <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                            </script>
-                        </div>
-                    </div>';
-                }
+                    if(ENVIRONMENT == "production")
+                    {
+                        echo'
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- iamavailablefor.work homepage -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-9259836823539954"
+                             data-ad-slot="5257542342"
+                             data-ad-format="auto"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>';
+                    }
                 ?>
             </div>
         </div>
