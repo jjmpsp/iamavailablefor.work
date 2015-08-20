@@ -37,8 +37,7 @@
                         url: base_url+"ajax/checkUsername/",
                         type: 'POST',
                         data: formData,
-                        success: function (data) {
-                            var json = JSON.parse(data);
+                        success: function (json) {
                             setNewToken(json);
 
                             if(json.errors.invalidFormat){
@@ -107,11 +106,12 @@
                                 echo '
                                     <input type="text" name="username" id="username" placeholder="'.base_url().'{username}" onclick="this.value = base_url;" />
                                     <input type="submit" class="uk-button uk-button-primary" id="submitButton" value="Check"/>
-                                    <div class="uk-clearfix"></div>
-                                <?php echo form_close(); ?>
+                                    <div class="uk-clearfix"></div>';
+                                echo form_close();
+                                echo '
                                 <br>
                                 <div>
-                                    Already got a profile? <a href="<?php echo base_url(); ?>login/">Please login to make edits to your portfolio</a>.
+                                    Already got a profile? <a href="'.base_url().'login/">Please login to make edits to your portfolio</a>.
                                 </div>
                                 </form>
                             </div>
@@ -119,6 +119,26 @@
                     }
                 ?>  
 
+                <?php
+                if(ENVIRONMENT == "production")
+                {
+                    echo'
+                    <div class="uk-width-12">
+                        <div class="page">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-9259836823539954"
+                                 data-ad-slot="5257542342"
+                                 data-ad-format="auto"></ins>
+                            <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                        </div>
+                    </div>';
+                }
+                ?>
+                
                 <div class="uk-width-12">
                     <div class="page">
                         <h3>What is iamavailablefor.work?</h3>
@@ -173,6 +193,26 @@
                         <p>Thanks for taking the time to read this page. If you find my website useful, maybe you'd like to consider <a href="">Donating to my server fund</a> to keep this project going. Bye for now!</p>
                     </div>
                 </div>
+
+                <?php
+                if(ENVIRONMENT == "production")
+                {
+                    echo'
+                    <div class="uk-width-12">
+                        <div class="page">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-9259836823539954"
+                                 data-ad-slot="5257542342"
+                                 data-ad-format="auto"></ins>
+                            <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                        </div>
+                    </div>';
+                }
+                ?>
             </div>
         </div>
 
