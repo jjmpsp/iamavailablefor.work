@@ -182,8 +182,8 @@ class Ajax extends REST_Controller {
                 $config['upload_path'] = FCPATH.'_tmp-folder/';
                 $config['allowed_types'] = 'gif|jpg|png|jpeg';
                 $config['max_size'] = 1024 * 5; // 5MB
-                $config['max_width']  = '2048';
-                $config['max_height']  = '2048';
+                $config['max_width']  = '5000';
+                $config['max_height']  = '5000';
                 $this->load->library('upload', $config);
 
                 if ( ! $this->upload->do_upload("profilePicture"))
