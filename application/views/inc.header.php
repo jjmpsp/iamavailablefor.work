@@ -26,7 +26,7 @@
 
                 <div id="google-widget">
                     <!-- Place this tag where you want the +1 button to render. -->
-                    <div class="g-plusone" data-href="http://iamavailablefor.work/"></div>
+                    <div class="g-plusone" data-size="medium" data-href="http://iamavailablefor.work/"></div>
 
                     <!-- Place this tag after the last +1 button tag. -->
                     <script type="text/javascript">

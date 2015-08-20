@@ -28,13 +28,13 @@ header {
 }
 #twitter-widget{
     position: absolute;
-    top: 42px;
+    top: 45px;
     right: 0px;
 }
 #google-widget{
     position: absolute;
-    top: 70px;
-    right: -42px;
+    top: 75px;
+    right: -34px;
 }
 
 ul.multicolor
