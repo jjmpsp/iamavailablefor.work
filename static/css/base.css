@@ -100,6 +100,30 @@ footer .separator{
     float: right;
 }
 
+div.blockMsg {
+    width:  40%;
+    top:    30%;
+    left:   30%;
+    text-align: center;
+    background-color: #337ab7;
+    border: 1px solid #ddd;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; 
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50); 
+    -moz-opacity:.70;
+    opacity:.70;
+    padding: 15px;
+    color: #fff;
+}
+div.blockMsg h1{
+    color: #ffffff;
+    font-size: 17px;
+    line-height: 17px;
+    padding: 12px 0px;
+    margin: 0px;
+}
+
 /* ===== Mobile queries =====  */
 /* Portrait */
 @media only screen and (min-device-width: 320px) and 

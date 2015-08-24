@@ -23,6 +23,7 @@
         <script src="<?php echo base_url(); ?>static/js/jquery.validate.min.js"></script>
         <script src="<?php echo base_url(); ?>static/js/colorpicker.js"></script>
         <script src="<?php echo base_url(); ?>static/js/nprogress.js"></script>
+        <script src="<?php echo base_url(); ?>static/js/jquery.blockUI.js"></script>
         <script src="<?php echo base_url(); ?>static/js/account.js"></script>
 
         <script type="text/javascript">
@@ -38,6 +39,10 @@
                 app.socialMediaListTable = null;
 
                 var base_url = "<?php echo base_url(); ?>";
+
+                $.blockUI.defaults.css = {}; 
+                $.blockUI.defaults.message = '<h1>Contacting server...</h1> <img src="'+base_url+'static/images/loader.gif" />';
+                $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
         </script>
 
         <style type="text/css">input[type="text"]:disabled { background: #dddddd url(<?php echo base_url(); ?>static/images/denied-icon.png) no-repeat right 5px center;background-size: 20px; }</style>
@@ -232,7 +237,7 @@
                         <div class="uk-overflow-container">
                             <table class="uk-table uk-table-bordered uk-table-striped uk-table-hover" id="socialMediaTable">
                                 <thead>
-                                    <th data-dynatable-no-sort="true" data-dynatable-column="socialMediaName">Name</th>
+                                    <th data-dynatable-no-sort="true" data-dynatable-column="socialMediaName">Social Media Name</th>
                                     <th data-dynatable-no-sort="true" data-dynatable-column="socialMediaID">User ID</th>
                                     <th data-dynatable-no-sort="true" data-dynatable-column="deleteButton">Actions</th>
                                 </thead>
