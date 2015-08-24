@@ -700,6 +700,58 @@ class Ajax extends REST_Controller {
         );
     }
 
+    public function deletePortfolioItem_post()
+    {
+        //echo 'deletePortfolioItem';
+
+        $response = array(); 
+        $errors = array();
+
+        $portfolioList = json_decode($this->aauth->get_user_var('portfolioList'), true);
+
+        $response["meta"] = array(
+            'newToken' => array(
+                'name' => $this->security->get_csrf_token_name(),
+                'hash' => $this->security->get_csrf_hash()
+            )
+        );
+
+        if( $this->aauth->is_loggedin() )
+        {   
+            $portfolioitemid = null;
+
+            if( $this->input->post('portfolioItemId') )
+            {
+                $portfolioitemid = $this->input->post('portfolioItemId');
+            }
+
+            for ($i=0; $i < count($portfolioList); $i++) { 
+                if($portfolioList[$i]['id'] == $portfolioitemid){
+                    unset($portfolioList[$i]);
+                    break;
+                }
+            }
+            $portfolioList = array_values($portfolioList);
+
+            $count = count($portfolioList);
+            $this->aauth->set_user_var('portfolioList', json_encode($portfolioList));
+            $response["message"] = "Portfolio Item removed. You can add ".(50 - count($portfolioList))." more portfolio item(s)."; 
+        }else{
+            $this->response(
+                "Not authorised",
+                REST_Controller::HTTP_UNAUTHORIZED
+            );
+            return false;
+        }
+
+        $response["portfolioList"] = $portfolioList;
+        $response["errors"] = $errors;
+        $this->response(
+            $response,
+            REST_Controller::HTTP_OK
+        );
+    }
+
     public function addSocialMedia_post(){
         //echo 'addPortfolioItem';
 
@@ -752,7 +804,7 @@ class Ajax extends REST_Controller {
                 $this->aauth->set_user_var('socialMediaList', json_encode($socialMediaList));
                 $response["message"] = "Social Media account added.";
             }else{
-                $errors[] = array("message" => "You can only add up to 50 Social Media accounts. Please go back and delete some.");
+                $errors[] = array("message" => "You can only add up to 20 Social Media accounts. Please go back and delete some.");
             }   
         }else{
             $this->response(
@@ -770,14 +822,14 @@ class Ajax extends REST_Controller {
         );
     }
 
-    public function deletePortfolioItem_post()
+    public function deleteSocialMedia_post()
     {
-        //echo 'deletePortfolioItem';
+        //echo 'deleteSocialMedia';
 
         $response = array(); 
         $errors = array();
 
-        $portfolioList = json_decode($this->aauth->get_user_var('portfolioList'), true);
+        $socialMediaList = json_decode($this->aauth->get_user_var('socialMediaList'), true);
 
         $response["meta"] = array(
             'newToken' => array(
@@ -788,24 +840,24 @@ class Ajax extends REST_Controller {
 
         if( $this->aauth->is_loggedin() )
         {   
-            $portfolioitemid = null;
+            $socialmediaid = null;
 
-            if( $this->input->post('portfolioItemId') )
+            if( $this->input->post('socialMediaId') )
             {
-                $portfolioitemid = $this->input->post('portfolioItemId');
+                $socialmediaid = $this->input->post('socialMediaId');
             }
 
-            for ($i=0; $i < count($portfolioList); $i++) { 
-                if($portfolioList[$i]['id'] == $portfolioitemid){
-                    unset($portfolioList[$i]);
+            for ($i=0; $i < count($socialMediaList); $i++) { 
+                if($socialMediaList[$i]['id'] == $socialmediaid){
+                    unset($socialMediaList[$i]);
                     break;
                 }
             }
-            $portfolioList = array_values($portfolioList);
+            $socialMediaList = array_values($socialMediaList);
 
-            $count = count($portfolioList);
-            $this->aauth->set_user_var('portfolioList', json_encode($portfolioList));
-            $response["message"] = "Portfolio Item removed. You can add ".(50 - count($portfolioList))." more portfolio item(s)."; 
+            $count = count($socialMediaList);
+            $this->aauth->set_user_var('socialMediaList', json_encode($socialMediaList));
+            $response["message"] = "Social Media account removed. You can add ".(20 - count($socialMediaList))." more Social Media account(s)."; 
         }else{
             $this->response(
                 "Not authorised",
@@ -814,7 +866,7 @@ class Ajax extends REST_Controller {
             return false;
         }
 
-        $response["portfolioList"] = $portfolioList;
+        $response["socialMediaList"] = $socialMediaList;
         $response["errors"] = $errors;
         $this->response(
             $response,

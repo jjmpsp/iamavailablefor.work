@@ -94,7 +94,7 @@
                                     {   
                                         type: "success",
                                         width: 280,
-                                        html: "This web address is available! <br>"+ '<a href="'+base_url+'register/?username='+usernameVal+'">Create a portfolio with this web address</a>'
+                                        html: "This web address is available! <br><br>"+ '<a href="'+base_url+'register/?username='+usernameVal+'">Create a portfolio with this web address</a>'
                                     }
                                 );
                             }else{

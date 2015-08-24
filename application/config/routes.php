@@ -63,6 +63,7 @@ $route['ajax/deleteSkill'] = "api/ajax/deleteSkill";
 $route['ajax/addPortfolioItem'] = "api/ajax/addPortfolioItem";
 $route['ajax/deletePortfolioItem'] = "api/ajax/deletePortfolioItem";
 $route['ajax/addSocialMedia'] = "api/ajax/addSocialMedia";
+$route['ajax/deleteSocialMedia'] = "api/ajax/deleteSocialMedia";
 $route['ajax/checkUsername(:any)'] = "api/ajax/checkUsername/$1";
 
 $route['test'] = "app/test";

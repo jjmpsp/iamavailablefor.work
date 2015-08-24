@@ -358,6 +358,50 @@ $(document).ready(function(){
         });
     });
 
+    $(document).on('click', '#socialMediaTable .deleteButton', function(){
+        var _that = $(this);
+        swal({   
+            title: "Are you sure?",   
+            html: "Are you sure you want to delete this Social Media? <br>This action cannot be undone.",     
+            type: "warning",   
+            showCancelButton: true,  
+            cancelButtonText: "Close", 
+            confirmButtonColor: "#DD6B55",   
+            confirmButtonText: "Yes, delete it!",   
+            closeOnConfirm: false 
+        }, function(){
+            $.ajax({
+                url: base_url+"ajax/deleteSocialMedia/",
+                type: 'POST',
+                data: {
+                    csrf_token : $("#csrf_token_ajax").val(),
+                    socialMediaId : $(_that).attr("data-id")
+                },
+                success: function (json) {
+                    setNewToken(json);
+
+                    if( json.errors.length > 0)
+                    {
+                        var message = "";
+                        for (var i = 0; i < json.errors.length; i++) {
+                            message += json.errors[i].message + "\n";
+                        };
+                        swal("error", message, "error");
+                        return;
+                    }
+
+                    if( json.message )
+                    {
+                        swal("success", json.message, "success");
+                        app.socialMediaList = json.socialMediaList;
+                        updateSocialMediaTable();
+                    }
+                },
+                cache: false
+            });
+        });
+    });
+
     $("#redirectWebAddressToggle").change(function(){
         var customUrlValue  = $("#customUrlValue");
         if($(this).val() == "On")
