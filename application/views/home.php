@@ -45,6 +45,12 @@
                     NProgress.start();
                 });
 
+                $("#donate_link").click(function(e){
+                    $("#donate_form").submit();
+
+                    e.preventDefault();
+                });
+
                 $("#checkUsername").submit(function(e){
                     e.preventDefault();
 
@@ -129,6 +135,13 @@
                             <div class="page">
                                 Hi '.$this->security->xss_clean($this->data['userdata']->name).'!
                                 You\'re already logged in. To edit your profile, please <a href="'.base_url().'account/">go to your account page</a>.
+                                <br>
+                                <br>
+                                <form>
+                                    <label>Your portfolio URL (<a href="'.base_url().$this->data['userdata']->name.'/" target="_blank">open in a new tab</a>) :</label>
+                                    <br>
+                                    <input type="text" id="portfolioURL" value="'.base_url().$this->data['userdata']->name.'/" disabled />
+                                </form>
                             </div>
                         </div>';
                     }else{
@@ -222,7 +235,13 @@
                         <hr>
 
                         <h3>That is all.</h3>
-                        <p>Thanks for taking the time to read this page. If you find my website useful, maybe you'd like to consider <a href="">Donating to my server fund</a> to keep this project going. Bye for now!</p>
+                        <p>Thanks for taking the time to read this page. If you find my website useful, maybe you'd like to consider <a id="donate_link" href="#">Donating to my server fund</a> to keep this project going. Bye for now!</p>
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="margin-top:20px;" id="donate_form">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id" value="6HZRKM3C2SD7S">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+                        </form>
                     </div>
                 </div>
 

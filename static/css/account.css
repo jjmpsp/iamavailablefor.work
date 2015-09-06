@@ -1,4 +1,4 @@
-input[type="text"], input[type="password"], select{
+input[type="text"], input[type="password"], input[type="number"], select{
     width: 50%;
     height: 30px;
     line-height: 30px;

@@ -1,0 +1,110 @@
+{
+    "name": "Trinity",
+    "version": 1.0,
+    "assets": {
+        "javascripts":
+        [
+            "trinity_.1.0.js"
+        ],
+        "styles":
+        [
+            "trinity_.1.0.css"
+        ],
+        "ajax":
+        [
+            ""
+        ]
+        
+    },
+    "customSettings": [
+        {
+            "id": "textbox1",
+            "name": "textbox1",
+            "label": "Just some text:",
+            "type": "textbox",
+            "defaultValue": "",
+            "placeholder" : "Please enter a value",
+            "attributes" : {
+                "required" : true,
+                "minlength": 2
+            },
+            "validation": [
+                "trim",
+                "required",
+                "min_length[6]",
+                "max_length[32]"
+            ]
+        },
+        {
+            "id": "dropdown1",
+            "name": "dropdown1",
+            "label": "An option:",
+            "type": "dropdown",
+            "dataset" : [
+                {
+                    "id" : 1,
+                    "value" : "John"
+                },
+                {
+                    "id" : 2,
+                    "value" : "Janet"
+                }
+            ],
+            "validation": [
+                "required"
+            ]
+        },
+        {
+            "id": "number1",
+            "name": "number1",
+            "label": "Enter a number:",
+            "type": "number",
+            "defaultValue" : 0,
+            "attributes" : {
+                "min" : 0,
+                "max" : 100
+            },
+            "validation": [
+                "greater_than[0]",
+                "less_than[10]"
+            ]
+        },
+        {
+            "id": "colour1",
+            "name": "colour1",
+            "label": "Profile text colour:",
+            "type": "colour",
+            "defaultValue" : "#000000",
+            "attributes" : {
+                "validHexColour" : true
+            },
+            "validation": [
+                "trim",
+                "required",
+                "hex_colour"
+            ]
+        },
+        {
+            "id": "colour2",
+            "name": "colour2",
+            "label": "Profile forecolour:",
+            "type": "colour",
+            "defaultValue" : "#FFFFFF",
+            "attributes" : {
+                "validHexColour" : true
+            },
+            "validation": [
+                "trim",
+                "required",
+                "hex_colour"
+            ]
+        }
+    ],
+    "maintainers": [
+        {
+            "name": "Joel Murphy",
+            "email": "joelpsp@hotmail.co.uk",
+            "url": "http://joel-murphy.com/"
+        }
+    ]
+}

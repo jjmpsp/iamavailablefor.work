@@ -498,7 +498,14 @@ $(document).ready(function(){
                             $("#"+json.errors[i].field).addClass("errorField");
                             message += json.errors[i].message + "\n";
                         };
-                        swal("error", message, "error");
+                        swal({   
+                            title: "Error",   
+                            html: message,   
+                            type: "error",   
+                            showCancelButton: false,
+                            confirmButtonText: "Close",   
+                            closeOnConfirm: false 
+                        });
                         return;
                     }
 
@@ -507,6 +514,53 @@ $(document).ready(function(){
                         swal("success", json.message, "success");
 
                         $("#editProfileSettingsForm :input").each(function(){
+                            var input = $(this);
+                            input.removeClass("errorField");
+                        });
+                    }
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+        }
+    });
+
+    $("#themeSettingsForm").validate({
+        submitHandler: function(form) {
+
+            var formData = new FormData($("#themeSettingsForm")[0]);
+
+            $.ajax({
+                url: base_url+"ajax/saveThemeSettings/",
+                type: 'POST',
+                data: formData,
+                success: function (json) {
+                    setNewToken(json);
+
+                    if( json.errors.length > 0)
+                    {
+                        var message = "";
+                        for (var i = 0; i < json.errors.length; i++) {
+                            $("#"+json.errors[i].field).addClass("errorField");
+                            message += json.errors[i].message + "\n";
+                        };
+                        swal({   
+                            title: "Error",   
+                            html: message,   
+                            type: "error",   
+                            showCancelButton: false,
+                            confirmButtonText: "Close",   
+                            closeOnConfirm: false 
+                        });
+                        return;
+                    }
+
+                    if( json.message )
+                    {
+                        swal("success", json.message, "success");
+
+                        $("#themeSettingsForm :input").each(function(){
                             var input = $(this);
                             input.removeClass("errorField");
                         });
@@ -809,5 +863,49 @@ $(document).ready(function(){
             });
         }
     });
+    
+
+    $('#themeSelection').change(function() {
+        var idx = $(this).val();        
+        //alert(idx); 
+
+        var formData = new FormData($("#themeSettingsForm")[0]);
+
+        $.ajax({
+            url: base_url+"ajax/populateThemeFields/",
+            type: 'POST',
+            data: formData,
+            success: function (json) {
+                setNewToken(json);
+                
+                console.log(json);
+
+                if( json.errors.length > 0)
+                {
+                    var message = "";
+                    for (var i = 0; i < json.errors.length; i++) {
+                        $("#"+json.errors[i].field).addClass("errorField");
+                        message += json.errors[i].message + "\n";
+                    };
+                    var message = generateModalError(message); 
+                    $("#themeSettingsForm .notice").html(message);
+
+                    return;
+                }
+
+                if( json.themeHTML )
+                {
+                    $("#themeHtml").html(json.themeHTML);
+                }
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+
+    });
+
+    // Call the trigger to load dynamic form elements via ajax.
+    $('#themeSelection').trigger('change');
 
 });

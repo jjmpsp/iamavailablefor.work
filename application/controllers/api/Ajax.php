@@ -122,6 +122,90 @@ class Ajax extends REST_Controller {
         );
     }
 
+    public function saveThemeSettings_post(){
+        $response = array(); 
+        $errors = array();
+
+        $response["meta"] = array(
+            'newToken' => array(
+                'name' => $this->security->get_csrf_token_name(),
+                'hash' => $this->security->get_csrf_hash()
+            )
+        );
+
+        if( $this->aauth->is_loggedin() )
+        {   
+            // Get custom rules from settings file and use CI's form validation library to validate inputs.
+            $this->load->library('form_validation');
+        
+            // Load theme index
+            $themes = array();
+            $themeObj = null;
+
+            $json = json_decode(file_get_contents("themes/_index.json"));
+            foreach ($json->themes as $theme)
+            {
+                if($theme->id == $this->input->post('themeSelection'))
+                {
+                    $themeObj = $theme;
+                    break;
+                }
+            }
+
+            $validationRules = array();
+            $fields = array();
+
+            // Load individual theme file
+            if($themeObj !== null)
+            {  
+                $json = json_decode(file_get_contents("themes/".$themeObj->filepath."_theme.json"));
+                if (json_last_error() !== JSON_ERROR_NONE) {
+                    $response["themeHTML"] = "Error parsing theme settings.";
+                }
+
+                for ($i=0; $i < count($json->customSettings); $i++) { 
+                    if( (isset($json->customSettings[$i]->validation)) && (count($json->customSettings[$i]->validation) > 0) )
+                    {
+                        $rulesString = "";
+                        for ($j=0; $j < count($json->customSettings[$i]->validation); $j++) { 
+                            $rulesString .= $json->customSettings[$i]->validation[$j].(($j < count($json->customSettings[$i]->validation)-1) ? "|" : "");
+                        }
+                        
+                        $fields[] = $themeObj->id."_".$json->customSettings[$i]->name;
+                        $this->form_validation->set_rules($themeObj->id."_".$json->customSettings[$i]->name, $json->customSettings[$i]->label, $rulesString);
+                    }
+                }
+            }else{
+                $errors[] = "Theme index file is corrupt.";
+            }
+
+            // Validate all inputs
+            if($this->form_validation->run() == TRUE)
+            {
+                // All good! Let's insert all values that have have custom validation rules defined for them.
+                for ($i=0; $i < count($fields); $i++) { 
+                    $this->aauth->set_user_var($fields[$i], $this->input->post($fields[$i]));
+                }
+
+                $response["message"] = "Theme settings saved!";
+            }else{
+                $errors['formErrors'] = ($this->form_validation->get_all_errors());
+            }
+        }else{
+            $this->response(
+                "Not authorised",
+                REST_Controller::HTTP_UNAUTHORIZED
+            );
+            return false;
+        }
+
+        $response["errors"] = $errors;
+        $this->response(
+            $response,
+            REST_Controller::HTTP_OK
+        );
+    }
+
     public function editProfileInformation_post(){
         //echo 'editProfileInformation';
 
@@ -867,6 +951,112 @@ class Ajax extends REST_Controller {
         }
 
         $response["socialMediaList"] = $socialMediaList;
+        $response["errors"] = $errors;
+        $this->response(
+            $response,
+            REST_Controller::HTTP_OK
+        );
+    }
+
+
+    public function populateThemeFields_post()
+    {
+        //echo 'populateThemeFields';
+
+        $response = array(); 
+        $errors = array();
+
+        $response["meta"] = array(
+            'newToken' => array(
+                'name' => $this->security->get_csrf_token_name(),
+                'hash' => $this->security->get_csrf_hash()
+            )
+        );
+
+        if( $this->aauth->is_loggedin() )
+        {   
+            // Get custom user variables from DB.
+            $keys = $this->aauth->list_user_var_keys();
+            $values = array();
+            for ($i=0; $i < count($keys); $i++) { 
+                $values[$keys[$i]->key] = $this->aauth->get_user_var($keys[$i]->key);
+            }
+            $this->data['customUserdata'] = $values;
+
+            $themeID = $this->input->post('themeSelection'); 
+            $themeObj = null;
+
+            //Search the theme index for the specified theme file to read. If it's missing then throw an error.
+            $json = json_decode(file_get_contents("themes/_index.json"));
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                $response["themeHTML"] = "Error parsing the theme index.";
+            }
+
+            foreach ($json->themes as $theme)
+            {
+                if($theme->id == $themeID)
+                {
+                    $themeObj = $theme;
+                }
+            }
+
+            if($themeObj !== null)
+            {   
+                $settingsHtml = "";
+
+                $json = json_decode(file_get_contents("themes/".$themeObj->filepath."_theme.json"));
+                if (json_last_error() !== JSON_ERROR_NONE) {
+                    $response["themeHTML"] = "Error parsing theme settings.";
+                }
+                foreach ($json->customSettings as $setting)
+                {   
+                    switch ($setting->type) {
+                        case 'textbox':
+                            $settingsHtml .= '<label>'.$setting->label.'</label><br><input type="text" id="'.$themeObj->id.'_'.$setting->id.'" name="'.$themeObj->id.'_'.$setting->name.'" '.(isset($setting->attributes->minlength) ? 'minlength="'.$setting->attributes->minlength.'"' : "").' required placeholder="" value="'.(isset($this->data['customUserdata'][$themeObj->id.'_'.$setting->name]) ? $this->data['customUserdata'][$themeObj->id.'_'.$setting->name] : $setting->defaultValue).'" /> <br><br>';
+                            break;
+                        case 'dropdown':
+                            $settingsHtml .= '<label>'.$setting->label.'</label><br><select id="'.$themeObj->id.'_'.$setting->id.'" name="'.$themeObj->id.'_'.$setting->name.'">';
+                            foreach ($setting->dataset as $key) {
+                                $settingsHtml .= '<option '.((isset($this->data['customUserdata'][$themeObj->id.'_'.$setting->name])) && ($this->data['customUserdata'][$themeObj->id.'_'.$setting->name] == $key->id) ? "selected" : "").' value="'.$key->id.'">'.$key->value.'</option>';
+                            }
+                            $settingsHtml .= '</select><br><br>';
+                            break;
+                        case 'number':
+                            $settingsHtml .= '<label>'.$setting->label.'</label><br><input type="number" id="'.$themeObj->id.'_'.$setting->id.'" name="'.$themeObj->id.'_'.$setting->name.'" min="1" max="5" value="'.(isset($this->data['customUserdata'][$themeObj->id.'_'.$setting->name]) ? $this->data['customUserdata'][$themeObj->id.'_'.$setting->name] : $setting->defaultValue).'"><br><br>';
+                            break;
+                        case 'colour':
+                            $settingsHtml .= '<label>'.$setting->label.'</label><br><input type="text" id="'.$themeObj->id.'_'.$setting->id.'" name="'.$themeObj->id.'_'.$setting->name.'" '.(isset($setting->attributes->validHexColour) ? 'data-rule-validHexColour="'.$setting->attributes->validHexColour.'"' : "").' value="'.(isset($this->data['customUserdata'][$themeObj->id.'_'.$setting->name]) ? $this->data['customUserdata'][$themeObj->id.'_'.$setting->name] : $setting->defaultValue).'"><br><br>';
+                            $settingsHtml .= "
+                            <script>
+                                $(document).ready(function(){ 
+                                    $('#".$themeObj->id.'_'.$setting->id."').ColorPicker({
+                                        onBeforeShow: function () {
+                                            $(this).ColorPickerSetColor(this.value);
+                                        },
+                                        onChange: function (hsb, hex, rgb, el) {
+                                            $('#".$themeObj->id.'_'.$setting->id."').val('#'+hex);
+                                        }
+                                    })
+                                });
+                            </script>";
+                            break;
+                        default:
+                            # code...
+                            break;
+                    }
+                }
+                $response["themeHTML"] = $settingsHtml; 
+            }else{
+                $errors[] = "Missing theme metadata for theme ID: ".$themeID;
+            }
+        }else{
+            $this->response(
+                "Not authorised",
+                REST_Controller::HTTP_UNAUTHORIZED
+            );
+            return false;
+        }
+
         $response["errors"] = $errors;
         $this->response(
             $response,

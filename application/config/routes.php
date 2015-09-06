@@ -52,7 +52,7 @@ $route['profiles'] = "app/profiles";
 $route['api'] = "app/api";
 $route['contact'] = "app/contact";
 
-$route['ajax/checkUsername'] = "api/ajax/checkUsername";
+$route['ajax/checkUsername'] = "api/ajax/checkUsername/$1";
 $route['ajax/editAccountSettings'] = "api/ajax/editAccountSettings";
 $route['ajax/editProfileSettings'] = "api/ajax/editProfileSettings";
 $route['ajax/editProfileInformation'] = "api/ajax/editProfileInformation";
@@ -64,10 +64,12 @@ $route['ajax/addPortfolioItem'] = "api/ajax/addPortfolioItem";
 $route['ajax/deletePortfolioItem'] = "api/ajax/deletePortfolioItem";
 $route['ajax/addSocialMedia'] = "api/ajax/addSocialMedia";
 $route['ajax/deleteSocialMedia'] = "api/ajax/deleteSocialMedia";
-$route['ajax/checkUsername(:any)'] = "api/ajax/checkUsername/$1";
+$route['ajax/populateThemeFields'] = "api/ajax/populateThemeFields";
+$route['ajax/saveThemeSettings'] = "api/ajax/saveThemeSettings";
 
 $route['test'] = "app/test";
 $route['test2'] = "app/test2";
+$route['test3'] = "app/test3";
 $route['api/example/users/(:num)'] = 'api/ajax/users/id/$1'; // Example 4
 $route['api/example/users/(:num)(\.)([a-zA-Z0-9_-]+)(.*)'] = 'api/example/ajax/id/$1/format/$3$4'; // Example 8
 

@@ -248,12 +248,15 @@ iframe {
   }
 }
 .uk-grid {
+  /* Removed these lines as there was a strange bug in Chrome from 3/9/2015 where the grid would float right.
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   -ms-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
+  */
+  display: block;
   margin: 0;
   padding: 0;
   list-style: none;

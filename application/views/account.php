@@ -57,7 +57,7 @@
                         <input type="hidden" id="csrf_token_ajax" name="csrf_token" value="<?php echo $this->security->get_csrf_hash(); ?>" style="display:none;" />
                         <h3>Your account</h3>
                         <p>From this page you will be able to make changes to your profile.</p> 
-                        <p>Changes will instantly become visible on your profile web address once they are saved.</p>
+                        <p>Changes will instantly become visible on your profile web address when saved.</p>
                         <hr>
                         <h4>Account details</h4>
                         <?php
@@ -246,13 +246,35 @@
                             </table>
                         </div>
                         <hr>
+                        <h4>Theme settings</h4>
+                        <br>
+                        <?php
+                            $attributes = array('id' => 'themeSettingsForm', 'method' => 'POST');
+                            echo form_open(base_url().'login/', $attributes);
+                        ?>
+                            <label>Theme selection:</label>
+                            <br>
+                            <select id="themeSelection" name="themeSelection">
+                                <?php
+                                    foreach ($this->data['themes'] as $key => $value) {
+                                        echo '<option value="'.$value->id.'">'.$value->name.'</option>';
+                                    }
+                                ?>
+                            </select>
+                            <br>
+                            <br>
+                            <div id="themeHtml"></div>
+                            <button type="submit" form="themeSettingsForm" value="Save theme settings" class="uk-button uk-button-primary btn-md"><span class="glyphicon glyphicon-floppy-disk"></span> Save theme settings</button>
+                        <?php echo form_close(); ?>
+                        <hr>
+
                         <h4>Profile settings</h4>
                         <br>
                         <?php
                             $attributes = array('id' => 'editProfileSettingsForm', 'method' => 'POST');
                             echo form_open(base_url().'login/', $attributes);
                         ?>
-                            <label>Redirect to custom URL? This will disable your portfolio!</label>
+                            <label>Redirect to custom URL? <span style="color:red;font-style:italic;font-size:90%;">This will disable your portfolio!</span></label>
                             <br>
                             <select id="redirectWebAddressToggle" name="redirectWebAddressToggle">
                                 <option>Off</option>

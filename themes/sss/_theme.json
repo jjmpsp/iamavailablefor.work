@@ -1,0 +1,58 @@
+{
+    "name": "TeSt ThEmE",
+    "version": 1.0,
+    "assets": {
+        "javascripts":
+        [
+            "trinity_.1.0.js"
+        ],
+        "styles":
+        [
+            "trinity_.1.0.css"
+        ],
+        "ajax":
+        [
+            ""
+        ]
+        
+    },
+    "customSettings": [
+        {
+            "id": "colour1",
+            "name": "colour1",
+            "label": "Profile text colour:",
+            "type": "colour",
+            "defaultValue" : "#000000",
+            "attributes" : {
+                "validHexColour" : true
+            },
+            "validation": [
+                "trim",
+                "required",
+                "hex_colour"
+            ]
+        },
+        {
+            "id": "colour2",
+            "name": "colour2",
+            "label": "Profile forecolour:",
+            "type": "colour",
+            "defaultValue" : "#FFFFFF",
+            "attributes" : {
+                "validHexColour" : true
+            },
+            "validation": [
+                "trim",
+                "required",
+                "hex_colour"
+            ]
+        }
+    ],
+    "maintainers": [
+        {
+            "name": "Joel Murphy",
+            "email": "joelpsp@hotmail.co.uk",
+            "url": "http://joel-murphy.com/"
+        }
+    ]
+}

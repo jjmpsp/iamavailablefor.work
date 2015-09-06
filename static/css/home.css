@@ -17,6 +17,12 @@
     border: 1px solid #808080;
 }
 
+#portfolioURL{
+    width: 99%;
+    height: 40px;
+    font-size: 14px;
+}
+
 /* ===== Mobile queries =====  */
 /* Portrait */
 @media only screen and (min-device-width: 320px) and 

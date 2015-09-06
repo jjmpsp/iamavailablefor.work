@@ -43,6 +43,56 @@ class App extends CI_Controller {
         print_r(array_keys($this->router->routes));
     }
 
+    public function test3()
+    {   
+        echo '<select>';
+        $files = glob('themes/*.{json}', GLOB_BRACE);
+        foreach($files as $file) {
+            $json = json_decode(file_get_contents($file), true);
+            //print_r($json);
+
+            if (json_last_error() === JSON_ERROR_NONE) {
+                // JSON is valid
+                echo '<option>'.$json['name'].'</option>';
+            }
+        }
+        echo '</select>';
+
+        echo '<br>';
+        echo '<br>';
+        echo '-----------';
+        echo '<br>';
+        echo '<br>';
+
+        foreach ($json['customSettings'] as $key => $setting) {
+            switch ($setting['type']) {
+                case 'textbox':
+                    echo '<input type="text" name="textbox1">';
+                    echo '<br>';
+                    echo '<br>';
+                    break;
+                case 'dropdown':
+                    echo '<select><option></option></select>';
+                    echo '<br>';
+                    echo '<br>';
+                    break;
+                case 'number':
+                    echo '<input type="number" name="number1" min="1" max="5">';
+                    echo '<br>';
+                    echo '<br>';
+                case 'colour':
+                    echo '<input type="colour" name="colour1" value="colour">';
+                    echo '<br>';
+                    echo '<br>';
+                    break;
+                
+                default:
+                    # code...
+                    break;
+            }
+        }
+    }
+
     public function index() {
         $this->load->helper('form');
         $this->data['userdata'] = $this->aauth->get_user();
@@ -116,6 +166,7 @@ class App extends CI_Controller {
             else
             {
                 $this->data['errors'] = $this->aauth->get_errors();
+                $this->load->view('login');
             }
         }
     }
@@ -413,6 +464,16 @@ class App extends CI_Controller {
             "-1" => "Unavailable for work",
         );
 
+        // Load themes
+        $themes = array();
+
+        $json = json_decode(file_get_contents("themes/_index.json"));
+        foreach ($json->themes as $theme)
+        {
+            $themes[] = $theme;
+        }
+        $this->data['themes'] = $themes;
+        
         $this->load->view('account', $this->data);
 
         //redirect(base_url().'404/', 'refresh');
